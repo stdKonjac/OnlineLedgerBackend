@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.stdkonjac.onlineledger.dao.UserProfileDao">
+    <select id="selectUserProfile"
+            resultType="com.stdkonjac.onlineledger.entity.UserProfile">
+        select * from user_profile
+        <where>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+            <if test="nickname != null">
+                and nickname = #{nickname}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+            <if test="email != null">
+                and email = #{email}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectAllUserProfile"
+            resultType="com.stdkonjac.onlineledger.entity.UserProfile">
+        select *
+        from user_profile
+    </select>
+
+    <insert id="insertUserProfile">
+        insert into user_profile
+        <set>
+            <if test="uid != null">
+                uid = #{uid},
+            </if>
+            <if test="nickname != null">
+                nickname = #{nickname},
+            </if>
+            <if test="phone != null">
+                phone = #{phone},
+            </if>
+            <if test="email != null">
+                email = #{email},
+            </if>
+        </set>
+    </insert>
+
+    <delete id="deleteUserProfile">
+        delete from user_profile
+        <where>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+            <if test="nickname != null">
+                and nickname = #{nickname}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+            <if test="email != null">
+                and email = #{email}
+            </if>
+        </where>
+    </delete>
+
+    <update id="updateUserProfile">
+        update user_profile
+        <set>
+            <if test="nickname != null">
+                nickname = #{nickname},
+            </if>
+            <if test="phone != null">
+                phone = #{phone},
+            </if>
+            <if test="email != null">
+                email = #{email},
+            </if>
+        </set>
+        <where>
+            <if test="uid != null">
+                and uid = #{uid},
+            </if>
+        </where>
+    </update>
+</mapper>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.stdkonjac.onlineledger.dao.UserDao">
+    <select id="selectUser"
+            resultType="com.stdkonjac.onlineledger.entity.User">
+        select * from user
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="username != null">
+                and username = #{username}
+            </if>
+            <if test="password != null">
+                and password = #{password}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectAllUser"
+            resultType="com.stdkonjac.onlineledger.entity.User">
+        select *
+        from user
+    </select>
+
+    <insert id="insertUser">
+        insert into user
+        <set>
+            <if test="id != null">
+                id = #{id},
+            </if>
+            <if test="username != null">
+                username = #{username},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+        </set>
+    </insert>
+
+    <delete id="deleteUser">
+        delete from user
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="username != null">
+                and username = #{username}
+            </if>
+            <if test="password != null">
+                and password = #{password}
+            </if>
+        </where>
+    </delete>
+
+    <update id="updateUser">
+        update user
+        <set>
+            <if test="username != null">
+                username = #{username},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+        </set>
+        <where>
+            <if test="id != null">
+                and id = #{id},
+            </if>
+        </where>
+    </update>
+</mapper>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.stdkonjac.onlineledger.dao.CategoryDao">
+    <select id="selectCategory"
+            resultType="com.stdkonjac.onlineledger.entity.Category">
+        select * from category
+        <where>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+            <if test="name != null">
+                and name = #{name}
+            </if>
+            <if test="record_count != null">
+                and record_count = #{record_count}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectAllCategory"
+            resultType="com.stdkonjac.onlineledger.entity.Category">
+        select *
+        from category
+    </select>
+
+    <insert id="insertCategory">
+        insert into category
+        <set>
+            <if test="uid != null">
+                uid = #{uid},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="record_count != null">
+                record_count = #{record_count}
+            </if>
+        </set>
+    </insert>
+
+    <delete id="deleteCategory">
+        delete from category
+        <where>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+            <if test="name != null">
+                and name = #{name}
+            </if>
+            <if test="record_count != null">
+                and record_count = #{record_count}
+            </if>
+        </where>
+    </delete>
+
+    <update id="updateCategory">
+        update category
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="record_count != null">
+                record_count = #{record_count},
+            </if>
+        </set>
+        <where>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+        </where>
+    </update>
+</mapper>

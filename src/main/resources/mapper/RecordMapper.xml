@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.stdkonjac.onlineledger.dao.RecordDao">
+    <select id="selectRecord"
+            resultType="com.stdkonjac.onlineledger.entity.Record">
+        select * from record
+        <where>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+            <if test="date != null">
+                and date = #{date}
+            </if>
+            <if test="category != null">
+                and category = #{category}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="cost != null">
+                and cost = #{cost}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectAllRecord"
+            resultType="com.stdkonjac.onlineledger.entity.Record">
+        select *
+        from record
+    </select>
+
+    <insert id="insertRecord">
+        insert into record
+        <set>
+            <if test="uid != null">
+                uid = #{uid},
+            </if>
+            <if test="date != null">
+                date = #{date},
+            </if>
+            <if test="category != null">
+                category = #{category},
+            </if>
+            <if test="type != null">
+                type = #{type},
+            </if>
+            <if test="cost != null">
+                cost = #{cost},
+            </if>
+        </set>
+    </insert>
+
+    <delete id="deleteRecord">
+        delete from record
+        <where>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+            <if test="date != null">
+                and date = #{date}
+            </if>
+            <if test="category != null">
+                and category = #{category}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="cost != null">
+                and cost = #{cost}
+            </if>
+        </where>
+    </delete>
+
+    <update id="updateRecord">
+        update record
+        <set>
+            <if test="date != null">
+                date = #{date},
+            </if>
+            <if test="category != null">
+                category = #{category},
+            </if>
+            <if test="type != null">
+                type = #{type},
+            </if>
+            <if test="cost != null">
+                cost = #{cost},
+            </if>
+        </set>
+        <where>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+        </where>
+    </update>
+</mapper>

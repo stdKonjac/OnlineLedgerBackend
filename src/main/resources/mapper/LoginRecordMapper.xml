@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.stdkonjac.onlineledger.dao.LoginRecordDao">
+    <select id="selectLoginRecord"
+            resultType="com.stdkonjac.onlineledger.entity.LoginRecord">
+        select * from login_record
+        <where>
+            <if test="IP != null">
+                and IP = #{IP}
+            </if>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+            <if test="username != null">
+                and username = #{username}
+            </if>
+            <if test="date != null">
+                and date = #{date}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectAllLoginRecord"
+            resultType="com.stdkonjac.onlineledger.entity.LoginRecord">
+        select *
+        from login_record
+    </select>
+
+    <insert id="insertLoginRecord">
+        insert into login_record
+        <set>
+            <if test="IP != null">
+                IP = #{IP},
+            </if>
+            <if test="uid != null">
+                uid = #{uid},
+            </if>
+            <if test="username != null">
+                username = #{username},
+            </if>
+            <if test="date != null">
+                date = #{date},
+            </if>
+        </set>
+    </insert>
+
+    <delete id="deleteLoginRecord">
+        delete from login_record
+        <where>
+            <if test="IP != null">
+                and IP = #{IP}
+            </if>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+            <if test="username != null">
+                and username = #{username}
+            </if>
+            <if test="date != null">
+                and date = #{date}
+            </if>
+        </where>
+    </delete>
+
+    <update id="updateLoginRecord">
+        update login_record
+        <set>
+            <if test="uid != null">
+                uid = #{uid},
+            </if>
+            <if test="username != null">
+                username = #{username},
+            </if>
+            <if test="date != null">
+                date = #{date},
+            </if>
+        </set>
+        <where>
+            <if test="IP != null">
+                and IP = #{IP}
+            </if>
+        </where>
+    </update>
+</mapper>
