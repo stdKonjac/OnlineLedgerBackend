@@ -59,27 +59,4 @@ public class LoginRecordController {
         loginRecordService.updateLoginRecord(IP, uid, username, date);
     }
 
-    @RequestMapping("/executeQuery")
-    public List<LoginRecord> executeQuery(HttpServletRequest request) {
-        String sql = request.getParameter("sql");
-        return loginRecordService.executeSelect(sql);
-    }
-
-    @RequestMapping("/executeInsert")
-    public void executeInsert(HttpServletRequest request) {
-        String sql = request.getParameter("sql");
-        loginRecordService.executeInsert(sql);
-    }
-
-    @RequestMapping("/executeDelete")
-    public void executeDelete(HttpServletRequest request) {
-        String sql = request.getParameter("sql");
-        loginRecordService.executeDelete(sql);
-    }
-
-    @RequestMapping("/executeUpdate")
-    public void executeUpdate(HttpServletRequest request) {
-        String sql = request.getParameter("sql");
-        loginRecordService.executeUpdate(sql);
-    }
 }

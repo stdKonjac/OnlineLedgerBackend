@@ -34,11 +34,4 @@ public interface CategoryDao {
             @Param("name") String name,
             @Param("record_count") Integer recordCount);
 
-    List<Category> executeSelect(@Param("sql") String sql);
-
-    void executeInsert(@Param("sql") String sql);
-
-    void executeDelete(@Param("sql") String sql);
-
-    void executeUpdate(@Param("sql") String sql);
 }

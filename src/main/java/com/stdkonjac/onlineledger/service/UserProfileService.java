@@ -49,19 +49,4 @@ public class UserProfileService {
         userProfileDao.updateUserProfile(uid, nickname, phone, email);
     }
 
-    public List<UserProfile> executeSelect(String sql) {
-        return userProfileDao.executeSelect(sql);
-    }
-
-    public void executeInsert(String sql) {
-        userProfileDao.executeInsert(sql);
-    }
-
-    public void executeDelete(String sql) {
-        userProfileDao.executeDelete(sql);
-    }
-
-    public void executeUpdate(String sql) {
-        userProfileDao.executeUpdate(sql);
-    }
 }

@@ -63,27 +63,4 @@ public class RecordController {
         recordService.updateRecord(uid, date, category, type, cost);
     }
 
-    @RequestMapping("/executeQuery")
-    public List<Record> executeQuery(HttpServletRequest request) {
-        String sql = request.getParameter("sql");
-        return recordService.executeSelect(sql);
-    }
-
-    @RequestMapping("/executeInsert")
-    public void executeInsert(HttpServletRequest request) {
-        String sql = request.getParameter("sql");
-        recordService.executeInsert(sql);
-    }
-
-    @RequestMapping("/executeDelete")
-    public void executeDelete(HttpServletRequest request) {
-        String sql = request.getParameter("sql");
-        recordService.executeDelete(sql);
-    }
-
-    @RequestMapping("/executeUpdate")
-    public void executeUpdate(HttpServletRequest request) {
-        String sql = request.getParameter("sql");
-        recordService.executeUpdate(sql);
-    }
 }

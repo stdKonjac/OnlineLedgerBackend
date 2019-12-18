@@ -49,19 +49,4 @@ public class LoginRecordService {
         loginRecordDao.updateLoginRecord(IP, uid, username, date);
     }
 
-    public List<LoginRecord> executeSelect(String sql) {
-        return loginRecordDao.executeSelect(sql);
-    }
-
-    public void executeInsert(String sql) {
-        loginRecordDao.executeInsert(sql);
-    }
-
-    public void executeDelete(String sql) {
-        loginRecordDao.executeDelete(sql);
-    }
-
-    public void executeUpdate(String sql) {
-        loginRecordDao.executeUpdate(sql);
-    }
 }

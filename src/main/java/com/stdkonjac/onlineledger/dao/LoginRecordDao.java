@@ -39,11 +39,4 @@ public interface LoginRecordDao {
             @Param("username") String username,
             @Param("date") Date date);
 
-    List<LoginRecord> executeSelect(@Param("sql") String sql);
-
-    void executeInsert(@Param("sql") String sql);
-
-    void executeDelete(@Param("sql") String sql);
-
-    void executeUpdate(@Param("sql") String sql);
 }

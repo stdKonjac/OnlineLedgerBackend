@@ -44,19 +44,4 @@ public class UserService {
         userDao.updateUser(id, username, password);
     }
 
-    public List<User> executeSelect(String sql) {
-        return userDao.executeSelect(sql);
-    }
-
-    public void executeInsert(String sql) {
-        userDao.executeInsert(sql);
-    }
-
-    public void executeDelete(String sql) {
-        userDao.executeDelete(sql);
-    }
-
-    public void executeUpdate(String sql) {
-        userDao.executeUpdate(sql);
-    }
 }

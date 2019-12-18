@@ -33,11 +33,4 @@ public interface UserDao {
             @Param("username") String username,
             @Param("password") String password);
 
-    List<User> executeSelect(@Param("sql") String sql);
-
-    void executeInsert(@Param("sql") String sql);
-
-    void executeDelete(@Param("sql") String sql);
-
-    void executeUpdate(@Param("sql") String sql);
 }

@@ -58,27 +58,4 @@ public class UserProfileController {
         userProfileService.updateUserProfile(uid, nickname, phone, email);
     }
 
-    @RequestMapping("/executeQuery")
-    public List<UserProfile> executeQuery(HttpServletRequest request) {
-        String sql = request.getParameter("sql");
-        return userProfileService.executeSelect(sql);
-    }
-
-    @RequestMapping("/executeInsert")
-    public void executeInsert(HttpServletRequest request) {
-        String sql = request.getParameter("sql");
-        userProfileService.executeInsert(sql);
-    }
-
-    @RequestMapping("/executeDelete")
-    public void executeDelete(HttpServletRequest request) {
-        String sql = request.getParameter("sql");
-        userProfileService.executeDelete(sql);
-    }
-
-    @RequestMapping("/executeUpdate")
-    public void executeUpdate(HttpServletRequest request) {
-        String sql = request.getParameter("sql");
-        userProfileService.executeUpdate(sql);
-    }
 }

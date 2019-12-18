@@ -38,11 +38,4 @@ public interface UserProfileDao {
             @Param("phone") String phone,
             @Param("email") String email);
 
-    List<UserProfile> executeSelect(@Param("sql") String sql);
-
-    void executeInsert(@Param("sql") String sql);
-
-    void executeDelete(@Param("sql") String sql);
-
-    void executeUpdate(@Param("sql") String sql);
 }

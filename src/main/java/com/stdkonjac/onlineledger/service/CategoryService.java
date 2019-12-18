@@ -44,19 +44,4 @@ public class CategoryService {
         categoryDao.updateCategory(uid, name, recordCount);
     }
 
-    public List<Category> executeSelect(String sql) {
-        return categoryDao.executeSelect(sql);
-    }
-
-    public void executeInsert(String sql) {
-        categoryDao.executeInsert(sql);
-    }
-
-    public void executeDelete(String sql) {
-        categoryDao.executeDelete(sql);
-    }
-
-    public void executeUpdate(String sql) {
-        categoryDao.executeUpdate(sql);
-    }
 }

@@ -42,11 +42,4 @@ public interface RecordDao {
             @Param("type") String type,
             @Param("cost") Double cost);
 
-    List<Record> executeSelect(@Param("sql") String sql);
-
-    void executeInsert(@Param("sql") String sql);
-
-    void executeDelete(@Param("sql") String sql);
-
-    void executeUpdate(@Param("sql") String sql);
 }

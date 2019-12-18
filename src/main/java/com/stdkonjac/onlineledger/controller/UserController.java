@@ -53,28 +53,4 @@ public class UserController {
         userService.updateUser(id, username, password);
     }
 
-    @RequestMapping("/executeQuery")
-    public List<User> executeQuery(HttpServletRequest request) {
-        String sql = request.getParameter("sql");
-        return userService.executeSelect(sql);
-    }
-
-    @RequestMapping("/executeInsert")
-    public void executeInsert(HttpServletRequest request) {
-        String sql = request.getParameter("sql");
-        userService.executeInsert(sql);
-    }
-
-    @RequestMapping("/executeDelete")
-    public void executeDelete(HttpServletRequest request) {
-        String sql = request.getParameter("sql");
-        userService.executeDelete(sql);
-    }
-
-    @RequestMapping("/executeUpdate")
-    public void executeUpdate(HttpServletRequest request) {
-        String sql = request.getParameter("sql");
-        userService.executeUpdate(sql);
-    }
-
 }
