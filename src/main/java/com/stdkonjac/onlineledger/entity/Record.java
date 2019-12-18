@@ -7,7 +7,7 @@ public class Record {
     private Integer uid;
     private Date date;
     private String category;
-    private Integer type;
+    private String type;
     private Double cost;
 
     public Integer getId() {
@@ -42,11 +42,11 @@ public class Record {
         this.category = category;
     }
 
-    public Integer getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Integer type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -65,7 +65,7 @@ public class Record {
                 ", uid=" + uid +
                 ", date=" + date +
                 ", category='" + category + '\'' +
-                ", type=" + type +
+                ", type='" + type + '\'' +
                 ", cost=" + cost +
                 '}';
     }
