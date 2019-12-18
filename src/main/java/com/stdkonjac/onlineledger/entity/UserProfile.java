@@ -1,25 +1,25 @@
 package com.stdkonjac.onlineledger.entity;
 
 public class UserProfile {
-    private int id;
-    private int uid;
+    private Integer id;
+    private Integer uid;
     private String nickname;
     private String phone;
     private String email;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getUid() {
+    public Integer getUid() {
         return uid;
     }
 
-    public void setUid(int uid) {
+    public void setUid(Integer uid) {
         this.uid = uid;
     }
 

@@ -3,26 +3,26 @@ package com.stdkonjac.onlineledger.entity;
 import java.util.Date;
 
 public class Record {
-    private int id;
-    private int uid;
+    private Integer id;
+    private Integer uid;
     private Date date;
     private String category;
-    private int type;
-    private double cost;
+    private Integer type;
+    private Double cost;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getUid() {
+    public Integer getUid() {
         return uid;
     }
 
-    public void setUid(int uid) {
+    public void setUid(Integer uid) {
         this.uid = uid;
     }
 
@@ -42,25 +42,25 @@ public class Record {
         this.category = category;
     }
 
-    public int getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 
-    public double getCost() {
+    public Double getCost() {
         return cost;
     }
 
-    public void setCost(double cost) {
+    public void setCost(Double cost) {
         this.cost = cost;
     }
 
     @Override
     public String toString() {
-        return "record{" +
+        return "Record{" +
                 "id=" + id +
                 ", uid=" + uid +
                 ", date=" + date +

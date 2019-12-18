@@ -83,4 +83,21 @@
             </if>
         </where>
     </update>
+
+    <select id="executeSelect"
+            resultType="com.stdkonjac.onlineledger.entity.LoginRecord">
+        ${sql}
+    </select>
+
+    <insert id="executeInsert">
+        ${sql}
+    </insert>
+
+    <delete id="executeDelete">
+        ${sql}
+    </delete>
+
+    <update id="executeUpdate">
+        ${sql}
+    </update>
 </mapper>

@@ -1,6 +1,7 @@
 package com.stdkonjac.onlineledger.controller;
 
 import com.stdkonjac.onlineledger.entity.Category;
+import com.stdkonjac.onlineledger.entity.User;
 import com.stdkonjac.onlineledger.service.CategoryService;
 import com.stdkonjac.onlineledger.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,9 @@ public class CategoryController {
 
     @RequestMapping("/query")
     public List<Category> query(HttpServletRequest request) {
-        int uid = ParseUtil.str2Int(request.getParameter("uid"));
+        Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String name = request.getParameter("name");
-        int recordCount = ParseUtil.str2Int(request.getParameter("record_count"));
+        Integer recordCount = ParseUtil.str2Int(request.getParameter("record_count"));
         return categoryService.selectCategory(uid, name, recordCount);
     }
 
@@ -31,25 +32,49 @@ public class CategoryController {
 
     @RequestMapping("/insert")
     public void insert(HttpServletRequest request) {
-        int uid = ParseUtil.str2Int(request.getParameter("uid"));
+        Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String name = request.getParameter("name");
-        int recordCount = ParseUtil.str2Int(request.getParameter("record_count"));
+        Integer recordCount = ParseUtil.str2Int(request.getParameter("record_count"));
         categoryService.insertCategory(uid, name, recordCount);
     }
 
     @RequestMapping("/delete")
     public void delete(HttpServletRequest request) {
-        int uid = ParseUtil.str2Int(request.getParameter("uid"));
+        Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String name = request.getParameter("name");
-        int recordCount = ParseUtil.str2Int(request.getParameter("record_count"));
+        Integer recordCount = ParseUtil.str2Int(request.getParameter("record_count"));
         categoryService.deleteCategory(uid, name, recordCount);
     }
 
     @RequestMapping("/update")
     public void update(HttpServletRequest request) {
-        int uid = ParseUtil.str2Int(request.getParameter("uid"));
+        Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String name = request.getParameter("name");
-        int recordCount = ParseUtil.str2Int(request.getParameter("record_count"));
+        Integer recordCount = ParseUtil.str2Int(request.getParameter("record_count"));
         categoryService.updateCategory(uid, name, recordCount);
+    }
+
+    @RequestMapping("/executeQuery")
+    public List<Category> executeQuery(HttpServletRequest request) {
+        String sql = request.getParameter("sql");
+        return categoryService.executeSelect(sql);
+    }
+
+    @RequestMapping("/executeInsert")
+    public void executeInsert(HttpServletRequest request) {
+        String sql = request.getParameter("sql");
+        categoryService.executeInsert(sql);
+    }
+
+    @RequestMapping("/executeDelete")
+    public void executeDelete(HttpServletRequest request) {
+        String sql = request.getParameter("sql");
+        categoryService.executeDelete(sql);
+    }
+
+    @RequestMapping("/executeUpdate")
+    public void executeUpdate(HttpServletRequest request) {
+        String sql = request.getParameter("sql");
+        categoryService.executeUpdate(sql);
     }
 }

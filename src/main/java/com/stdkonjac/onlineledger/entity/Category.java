@@ -1,24 +1,24 @@
 package com.stdkonjac.onlineledger.entity;
 
 public class Category {
-    private int id;
-    private int uid;
+    private Integer id;
+    private Integer uid;
     private String name;
-    private int record_count;
+    private Integer recordCount;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getUid() {
+    public Integer getUid() {
         return uid;
     }
 
-    public void setUid(int uid) {
+    public void setUid(Integer uid) {
         this.uid = uid;
     }
 
@@ -30,12 +30,12 @@ public class Category {
         this.name = name;
     }
 
-    public int getRecord_count() {
-        return record_count;
+    public Integer getRecordCount() {
+        return recordCount;
     }
 
-    public void setRecord_count(int record_count) {
-        this.record_count = record_count;
+    public void setRecordCount(Integer recordCount) {
+        this.recordCount = recordCount;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class Category {
                 "id=" + id +
                 ", uid=" + uid +
                 ", name='" + name + '\'' +
-                ", record_count=" + record_count +
+                ", recordCount=" + recordCount +
                 '}';
     }
 }

@@ -1,5 +1,6 @@
 package com.stdkonjac.onlineledger.controller;
 
+import com.stdkonjac.onlineledger.entity.User;
 import com.stdkonjac.onlineledger.entity.UserProfile;
 import com.stdkonjac.onlineledger.service.UserProfileService;
 import com.stdkonjac.onlineledger.util.*;
@@ -32,7 +33,7 @@ public class UserProfileController {
 
     @RequestMapping("/insert")
     public void insert(HttpServletRequest request) {
-        int uid = ParseUtil.str2Int(request.getParameter("uid"));
+        Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String nickname = request.getParameter("nickname");
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
@@ -41,7 +42,7 @@ public class UserProfileController {
 
     @RequestMapping("/delete")
     public void delete(HttpServletRequest request) {
-        int uid = ParseUtil.str2Int(request.getParameter("uid"));
+        Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String nickname = request.getParameter("nickname");
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
@@ -50,10 +51,34 @@ public class UserProfileController {
 
     @RequestMapping("/update")
     public void update(HttpServletRequest request) {
-        int uid = ParseUtil.str2Int(request.getParameter("uid"));
+        Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String nickname = request.getParameter("nickname");
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
         userProfileService.updateUserProfile(uid, nickname, phone, email);
+    }
+
+    @RequestMapping("/executeQuery")
+    public List<UserProfile> executeQuery(HttpServletRequest request) {
+        String sql = request.getParameter("sql");
+        return userProfileService.executeSelect(sql);
+    }
+
+    @RequestMapping("/executeInsert")
+    public void executeInsert(HttpServletRequest request) {
+        String sql = request.getParameter("sql");
+        userProfileService.executeInsert(sql);
+    }
+
+    @RequestMapping("/executeDelete")
+    public void executeDelete(HttpServletRequest request) {
+        String sql = request.getParameter("sql");
+        userProfileService.executeDelete(sql);
+    }
+
+    @RequestMapping("/executeUpdate")
+    public void executeUpdate(HttpServletRequest request) {
+        String sql = request.getParameter("sql");
+        userProfileService.executeUpdate(sql);
     }
 }

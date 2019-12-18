@@ -15,7 +15,7 @@ public class LoginRecordService {
 
     public List<LoginRecord> selectLoginRecord(
             String IP,
-            int uid,
+            Integer uid,
             String username,
             Date date) {
         return loginRecordDao.selectLoginRecord(IP, uid, username, date);
@@ -27,7 +27,7 @@ public class LoginRecordService {
 
     public void insertLoginRecord(
             String IP,
-            int uid,
+            Integer uid,
             String username,
             Date date) {
         loginRecordDao.insertLoginRecord(IP, uid, username, date);
@@ -35,7 +35,7 @@ public class LoginRecordService {
 
     public void deleteLoginRecord(
             String IP,
-            int uid,
+            Integer uid,
             String username,
             Date date) {
         loginRecordDao.deleteLoginRecord(IP, uid, username, date);
@@ -43,9 +43,25 @@ public class LoginRecordService {
 
     public void updateLoginRecord(
             String IP,
-            int uid,
+            Integer uid,
             String username,
             Date date) {
         loginRecordDao.updateLoginRecord(IP, uid, username, date);
+    }
+
+    public List<LoginRecord> executeSelect(String sql) {
+        return loginRecordDao.executeSelect(sql);
+    }
+
+    public void executeInsert(String sql) {
+        loginRecordDao.executeInsert(sql);
+    }
+
+    public void executeDelete(String sql) {
+        loginRecordDao.executeDelete(sql);
+    }
+
+    public void executeUpdate(String sql) {
+        loginRecordDao.executeUpdate(sql);
     }
 }

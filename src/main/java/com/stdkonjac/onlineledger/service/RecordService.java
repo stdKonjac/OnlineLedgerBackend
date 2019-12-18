@@ -14,7 +14,7 @@ public class RecordService {
     private RecordDao recordDao;
 
     public List<Record> selectRecord(
-            int uid,
+            Integer uid,
             Date date,
             String category,
             String type,
@@ -27,7 +27,7 @@ public class RecordService {
     }
 
     public void insertRecord(
-            int uid,
+            Integer uid,
             Date date,
             String category,
             String type,
@@ -36,7 +36,7 @@ public class RecordService {
     }
 
     public void deleteRecord(
-            int uid,
+            Integer uid,
             Date date,
             String category,
             String type,
@@ -45,11 +45,27 @@ public class RecordService {
     }
 
     public void updateRecord(
-            int uid,
+            Integer uid,
             Date date,
             String category,
             String type,
             Double cost) {
         recordDao.updateRecord(uid, date, category, type, cost);
+    }
+
+    public List<Record> executeSelect(String sql) {
+        return recordDao.executeSelect(sql);
+    }
+
+    public void executeInsert(String sql) {
+        recordDao.executeInsert(sql);
+    }
+
+    public void executeDelete(String sql) {
+        recordDao.executeDelete(sql);
+    }
+
+    public void executeUpdate(String sql) {
+        recordDao.executeUpdate(sql);
     }
 }

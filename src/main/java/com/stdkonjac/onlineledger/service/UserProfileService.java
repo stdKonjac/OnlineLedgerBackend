@@ -1,6 +1,7 @@
 package com.stdkonjac.onlineledger.service;
 
 import com.stdkonjac.onlineledger.dao.UserProfileDao;
+import com.stdkonjac.onlineledger.entity.User;
 import com.stdkonjac.onlineledger.entity.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ public class UserProfileService {
     private UserProfileDao userProfileDao;
 
     public List<UserProfile> selectUserProfile(
-            int uid,
+            Integer uid,
             String nickname,
             String phone,
             String email) {
@@ -25,7 +26,7 @@ public class UserProfileService {
     }
 
     public void insertUserProfile(
-            int uid,
+            Integer uid,
             String nickname,
             String phone,
             String email) {
@@ -33,7 +34,7 @@ public class UserProfileService {
     }
 
     public void deleteUserProfile(
-            int uid,
+            Integer uid,
             String nickname,
             String phone,
             String email) {
@@ -41,10 +42,26 @@ public class UserProfileService {
     }
 
     public void updateUserProfile(
-            int uid,
+            Integer uid,
             String nickname,
             String phone,
             String email) {
         userProfileDao.updateUserProfile(uid, nickname, phone, email);
+    }
+
+    public List<UserProfile> executeSelect(String sql) {
+        return userProfileDao.executeSelect(sql);
+    }
+
+    public void executeInsert(String sql) {
+        userProfileDao.executeInsert(sql);
+    }
+
+    public void executeDelete(String sql) {
+        userProfileDao.executeDelete(sql);
+    }
+
+    public void executeUpdate(String sql) {
+        userProfileDao.executeUpdate(sql);
     }
 }

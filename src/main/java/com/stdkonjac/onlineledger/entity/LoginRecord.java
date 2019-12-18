@@ -3,17 +3,17 @@ package com.stdkonjac.onlineledger.entity;
 import java.util.Date;
 
 public class LoginRecord {
-    private int id;
+    private Integer id;
     private String IP;
-    private int uid;
+    private Integer uid;
     private String username;
     private Date date;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -25,11 +25,11 @@ public class LoginRecord {
         this.IP = IP;
     }
 
-    public int getUid() {
+    public Integer getUid() {
         return uid;
     }
 
-    public void setUid(int uid) {
+    public void setUid(Integer uid) {
         this.uid = uid;
     }
 
@@ -56,6 +56,7 @@ public class LoginRecord {
                 ", IP='" + IP + '\'' +
                 ", uid=" + uid +
                 ", username='" + username + '\'' +
+                ", date=" + date +
                 '}';
     }
 }

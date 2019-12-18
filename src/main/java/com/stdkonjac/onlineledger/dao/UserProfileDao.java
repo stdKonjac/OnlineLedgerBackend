@@ -1,5 +1,6 @@
 package com.stdkonjac.onlineledger.dao;
 
+import com.stdkonjac.onlineledger.entity.User;
 import com.stdkonjac.onlineledger.entity.UserProfile;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -10,7 +11,7 @@ import java.util.List;
 public interface UserProfileDao {
 
     List<UserProfile> selectUserProfile(
-            @Param("uid") int uid,
+            @Param("uid") Integer uid,
             @Param("nickname") String nickname,
             @Param("phone") String phone,
             @Param("email") String email);
@@ -18,22 +19,30 @@ public interface UserProfileDao {
     List<UserProfile> selectAllUserProfile();
 
     void insertUserProfile(
-            @Param("uid") int uid,
+            @Param("uid") Integer uid,
             @Param("nickname") String nickname,
             @Param("phone") String phone,
             @Param("email") String email);
 
 
     void deleteUserProfile(
-            @Param("uid") int uid,
+            @Param("uid") Integer uid,
             @Param("nickname") String nickname,
             @Param("phone") String phone,
             @Param("email") String email);
 
 
     void updateUserProfile(
-            @Param("uid") int uid,
+            @Param("uid") Integer uid,
             @Param("nickname") String nickname,
             @Param("phone") String phone,
             @Param("email") String email);
+
+    List<UserProfile> executeSelect(@Param("sql") String sql);
+
+    void executeInsert(@Param("sql") String sql);
+
+    void executeDelete(@Param("sql") String sql);
+
+    void executeUpdate(@Param("sql") String sql);
 }

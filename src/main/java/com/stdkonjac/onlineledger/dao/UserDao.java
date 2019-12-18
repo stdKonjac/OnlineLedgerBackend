@@ -10,26 +10,34 @@ import java.util.List;
 public interface UserDao {
 
     List<User> selectUser(
-            @Param("id") int id,
+            @Param("id") Integer id,
             @Param("username") String username,
             @Param("password") String password);
 
     List<User> selectAllUser();
 
     void insertUser(
-            @Param("id") int id,
+            @Param("id") Integer id,
             @Param("username") String username,
             @Param("password") String password);
 
 
     void deleteUser(
-            @Param("id") int id,
+            @Param("id") Integer id,
             @Param("username") String username,
             @Param("password") String password);
 
 
     void updateUser(
-            @Param("id") int id,
+            @Param("id") Integer id,
             @Param("username") String username,
             @Param("password") String password);
+
+    List<User> executeSelect(@Param("sql") String sql);
+
+    void executeInsert(@Param("sql") String sql);
+
+    void executeDelete(@Param("sql") String sql);
+
+    void executeUpdate(@Param("sql") String sql);
 }

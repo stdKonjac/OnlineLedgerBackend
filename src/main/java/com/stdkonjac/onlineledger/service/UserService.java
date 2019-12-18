@@ -13,7 +13,7 @@ public class UserService {
     private UserDao userDao;
 
     public List<User> selectUser(
-            int id,
+            Integer id,
             String username,
             String password) {
         return userDao.selectUser(id, username, password);
@@ -24,23 +24,39 @@ public class UserService {
     }
 
     public void insertUser(
-            int id,
+            Integer id,
             String username,
             String password) {
         userDao.insertUser(id, username, password);
     }
 
     public void deleteUser(
-            int id,
+            Integer id,
             String username,
             String password) {
         userDao.deleteUser(id, username, password);
     }
 
     public void updateUser(
-            int id,
+            Integer id,
             String username,
             String password) {
         userDao.updateUser(id, username, password);
+    }
+
+    public List<User> executeSelect(String sql) {
+        return userDao.executeSelect(sql);
+    }
+
+    public void executeInsert(String sql) {
+        userDao.executeInsert(sql);
+    }
+
+    public void executeDelete(String sql) {
+        userDao.executeDelete(sql);
+    }
+
+    public void executeUpdate(String sql) {
+        userDao.executeUpdate(sql);
     }
 }

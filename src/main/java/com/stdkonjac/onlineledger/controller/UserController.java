@@ -18,7 +18,7 @@ public class UserController {
 
     @RequestMapping("/query")
     public List<User> query(HttpServletRequest request) {
-        int id = ParseUtil.str2Int(request.getParameter("id"));
+        Integer id = ParseUtil.str2Int(request.getParameter("id"));
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         return userService.selectUser(id, username, password);
@@ -31,7 +31,7 @@ public class UserController {
 
     @RequestMapping("/insert")
     public void insert(HttpServletRequest request) {
-        int id = ParseUtil.str2Int(request.getParameter("id"));
+        Integer id = ParseUtil.str2Int(request.getParameter("id"));
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         userService.insertUser(id, username, password);
@@ -39,7 +39,7 @@ public class UserController {
 
     @RequestMapping("/delete")
     public void delete(HttpServletRequest request) {
-        int id = ParseUtil.str2Int(request.getParameter("id"));
+        Integer id = ParseUtil.str2Int(request.getParameter("id"));
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         userService.deleteUser(id, username, password);
@@ -47,9 +47,34 @@ public class UserController {
 
     @RequestMapping("/update")
     public void update(HttpServletRequest request) {
-        int id = ParseUtil.str2Int(request.getParameter("id"));
+        Integer id = ParseUtil.str2Int(request.getParameter("id"));
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         userService.updateUser(id, username, password);
     }
+
+    @RequestMapping("/executeQuery")
+    public List<User> executeQuery(HttpServletRequest request) {
+        String sql = request.getParameter("sql");
+        return userService.executeSelect(sql);
+    }
+
+    @RequestMapping("/executeInsert")
+    public void executeInsert(HttpServletRequest request) {
+        String sql = request.getParameter("sql");
+        userService.executeInsert(sql);
+    }
+
+    @RequestMapping("/executeDelete")
+    public void executeDelete(HttpServletRequest request) {
+        String sql = request.getParameter("sql");
+        userService.executeDelete(sql);
+    }
+
+    @RequestMapping("/executeUpdate")
+    public void executeUpdate(HttpServletRequest request) {
+        String sql = request.getParameter("sql");
+        userService.executeUpdate(sql);
+    }
+
 }

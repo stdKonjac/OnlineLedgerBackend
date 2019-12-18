@@ -11,7 +11,7 @@ import java.util.List;
 public interface RecordDao {
 
     List<Record> selectRecord(
-            @Param("uid") int uid,
+            @Param("uid") Integer uid,
             @Param("date") Date date,
             @Param("category") String category,
             @Param("type") String type,
@@ -20,7 +20,7 @@ public interface RecordDao {
     List<Record> selectAllRecord();
 
     void insertRecord(
-            @Param("uid") int uid,
+            @Param("uid") Integer uid,
             @Param("date") Date date,
             @Param("category") String category,
             @Param("type") String type,
@@ -28,7 +28,7 @@ public interface RecordDao {
 
 
     void deleteRecord(
-            @Param("uid") int uid,
+            @Param("uid") Integer uid,
             @Param("date") Date date,
             @Param("category") String category,
             @Param("type") String type,
@@ -36,9 +36,17 @@ public interface RecordDao {
 
 
     void updateRecord(
-            @Param("uid") int uid,
+            @Param("uid") Integer uid,
             @Param("date") Date date,
             @Param("category") String category,
             @Param("type") String type,
             @Param("cost") Double cost);
+
+    List<Record> executeSelect(@Param("sql") String sql);
+
+    void executeInsert(@Param("sql") String sql);
+
+    void executeDelete(@Param("sql") String sql);
+
+    void executeUpdate(@Param("sql") String sql);
 }
