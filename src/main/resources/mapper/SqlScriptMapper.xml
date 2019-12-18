@@ -7,17 +7,13 @@
             resultType="java.util.Map">
         ${sql}
     </select>
-
     <insert id="executeInsert">
         ${sql}
     </insert>
-
     <delete id="executeDelete">
         ${sql}
     </delete>
-
     <update id="executeUpdate">
         ${sql}
     </update>
-
 </mapper>
