@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.stdkonjac.onlineledger.dao.RecordDao">
-    <select id="selectRecord"
-            resultType="com.stdkonjac.onlineledger.entity.Record">
-        select * from record
+<mapper namespace="com.stdkonjac.onlineledger.dao.ExpenseRecordDao">
+    <select id="selectExpenseRecord"
+            resultType="com.stdkonjac.onlineledger.entity.ExpenseRecord">
+        select * from expense_record
         <where>
             <if test="uid != null">
                 and uid = #{uid}
@@ -19,20 +19,23 @@
             <if test="type != null">
                 and type = #{type}
             </if>
-            <if test="cost != null">
-                and cost = #{cost}
+            <if test="expense != null">
+                and expense = #{expense}
+            </if>
+            <if test="prepay != null">
+                and prepay = #{prepay}
             </if>
         </where>
     </select>
 
-    <select id="selectAllRecord"
-            resultType="com.stdkonjac.onlineledger.entity.Record">
+    <select id="selectAllExpenseRecord"
+            resultType="com.stdkonjac.onlineledger.entity.ExpenseRecord">
         select *
-        from record
+        from expense_record
     </select>
 
-    <insert id="insertRecord">
-        insert into record
+    <insert id="insertExpenseRecord">
+        insert into expense_record
         <set>
             <if test="uid != null">
                 uid = #{uid},
@@ -46,14 +49,17 @@
             <if test="type != null">
                 type = #{type},
             </if>
-            <if test="cost != null">
-                cost = #{cost},
+            <if test="expense != null">
+                expense = #{expense},
+            </if>
+            <if test="prepay != null">
+                prepay = #{prepay},
             </if>
         </set>
     </insert>
 
-    <delete id="deleteRecord">
-        delete from record
+    <delete id="deleteExpenseRecord">
+        delete from expense_record
         <where>
             <if test="uid != null">
                 and uid = #{uid}
@@ -67,14 +73,17 @@
             <if test="type != null">
                 and type = #{type}
             </if>
-            <if test="cost != null">
-                and cost = #{cost}
+            <if test="expense != null">
+                and expense = #{expense}
+            </if>
+            <if test="prepay != null">
+                and prepay = #{prepay}
             </if>
         </where>
     </delete>
 
-    <update id="updateRecord">
-        update record
+    <update id="updateExpenseRecord">
+        update expense_record
         <set>
             <if test="date != null">
                 date = #{date},
@@ -85,8 +94,11 @@
             <if test="type != null">
                 type = #{type},
             </if>
-            <if test="cost != null">
-                cost = #{cost},
+            <if test="expense != null">
+                expense = #{expense},
+            </if>
+            <if test="prepay != null">
+                prepay = #{prepay},
             </if>
         </set>
         <where>

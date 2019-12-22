@@ -14,11 +14,11 @@ public class LoginRecordService {
     private LoginRecordDao loginRecordDao;
 
     public List<LoginRecord> selectLoginRecord(
-            String IP,
+            String ip,
             Integer uid,
             String username,
             Date date) {
-        return loginRecordDao.selectLoginRecord(IP, uid, username, date);
+        return loginRecordDao.selectLoginRecord(ip, uid, username, date);
     }
 
     public List<LoginRecord> selectAllLoginRecord() {
@@ -26,27 +26,27 @@ public class LoginRecordService {
     }
 
     public void insertLoginRecord(
-            String IP,
+            String ip,
             Integer uid,
             String username,
             Date date) {
-        loginRecordDao.insertLoginRecord(IP, uid, username, date);
+        loginRecordDao.insertLoginRecord(ip, uid, username, date);
     }
 
     public void deleteLoginRecord(
-            String IP,
+            String ip,
             Integer uid,
             String username,
             Date date) {
-        loginRecordDao.deleteLoginRecord(IP, uid, username, date);
+        loginRecordDao.deleteLoginRecord(ip, uid, username, date);
     }
 
     public void updateLoginRecord(
-            String IP,
+            String ip,
             Integer uid,
             String username,
             Date date) {
-        loginRecordDao.updateLoginRecord(IP, uid, username, date);
+        loginRecordDao.updateLoginRecord(ip, uid, username, date);
     }
 
 }

@@ -1,6 +1,6 @@
 package com.stdkonjac.onlineledger.dao;
 
-import com.stdkonjac.onlineledger.entity.Record;
+import com.stdkonjac.onlineledger.entity.ExpenseRecord;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -8,38 +8,42 @@ import java.util.Date;
 import java.util.List;
 
 @Mapper
-public interface RecordDao {
+public interface ExpenseRecordDao {
 
-    List<Record> selectRecord(
+    List<ExpenseRecord> selectExpenseRecord(
             @Param("uid") Integer uid,
             @Param("date") Date date,
             @Param("category") String category,
             @Param("type") String type,
-            @Param("cost") Double cost);
+            @Param("expense") Double expense,
+            @Param("prepay") Integer prepay);
 
-    List<Record> selectAllRecord();
+    List<ExpenseRecord> selectAllExpenseRecord();
 
-    void insertRecord(
+    void insertExpenseRecord(
             @Param("uid") Integer uid,
             @Param("date") Date date,
             @Param("category") String category,
             @Param("type") String type,
-            @Param("cost") Double cost);
+            @Param("expense") Double expense,
+            @Param("prepay") Integer prepay);
 
 
-    void deleteRecord(
+    void deleteExpenseRecord(
             @Param("uid") Integer uid,
             @Param("date") Date date,
             @Param("category") String category,
             @Param("type") String type,
-            @Param("cost") Double cost);
+            @Param("expense") Double expense,
+            @Param("prepay") Integer prepay);
 
 
-    void updateRecord(
+    void updateExpenseRecord(
             @Param("uid") Integer uid,
             @Param("date") Date date,
             @Param("category") String category,
             @Param("type") String type,
-            @Param("cost") Double cost);
+            @Param("expense") Double expense,
+            @Param("prepay") Integer prepay);
 
 }

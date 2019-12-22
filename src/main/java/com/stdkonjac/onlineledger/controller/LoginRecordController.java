@@ -1,7 +1,6 @@
 package com.stdkonjac.onlineledger.controller;
 
 import com.stdkonjac.onlineledger.entity.LoginRecord;
-import com.stdkonjac.onlineledger.entity.User;
 import com.stdkonjac.onlineledger.service.LoginRecordService;
 import com.stdkonjac.onlineledger.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +19,11 @@ public class LoginRecordController {
 
     @RequestMapping("/query")
     public List<LoginRecord> query(HttpServletRequest request) {
-        String IP = IpUtil.getIpAddress(request);
+        String ip = IpUtil.getIpAddress(request);
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String username = request.getParameter("username");
         Date date = ParseUtil.str2Date(request.getParameter("date"));
-        return loginRecordService.selectLoginRecord(IP, uid, username, date);
+        return loginRecordService.selectLoginRecord(ip, uid, username, date);
     }
 
     @RequestMapping("/queryAll")
@@ -34,29 +33,29 @@ public class LoginRecordController {
 
     @RequestMapping("/insert")
     public void insert(HttpServletRequest request) {
-        String IP = IpUtil.getIpAddress(request);
+        String ip = IpUtil.getIpAddress(request);
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String username = request.getParameter("username");
         Date date = ParseUtil.str2Date(request.getParameter("date"));
-        loginRecordService.insertLoginRecord(IP, uid, username, date);
+        loginRecordService.insertLoginRecord(ip, uid, username, date);
     }
 
     @RequestMapping("/delete")
     public void delete(HttpServletRequest request) {
-        String IP = IpUtil.getIpAddress(request);
+        String ip = IpUtil.getIpAddress(request);
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String username = request.getParameter("username");
         Date date = ParseUtil.str2Date(request.getParameter("date"));
-        loginRecordService.deleteLoginRecord(IP, uid, username, date);
+        loginRecordService.deleteLoginRecord(ip, uid, username, date);
     }
 
     @RequestMapping("/update")
     public void update(HttpServletRequest request) {
-        String IP = IpUtil.getIpAddress(request);
+        String ip = IpUtil.getIpAddress(request);
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String username = request.getParameter("username");
         Date date = ParseUtil.str2Date(request.getParameter("date"));
-        loginRecordService.updateLoginRecord(IP, uid, username, date);
+        loginRecordService.updateLoginRecord(ip, uid, username, date);
     }
 
 }

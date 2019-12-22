@@ -2,13 +2,13 @@ package com.stdkonjac.onlineledger.entity;
 
 import java.util.Date;
 
-public class Record {
+public class IncomeRecord {
     private Integer id;
     private Integer uid;
     private Date date;
     private String category;
     private String type;
-    private Double cost;
+    private Double income;
 
     public Integer getId() {
         return id;
@@ -50,23 +50,23 @@ public class Record {
         this.type = type;
     }
 
-    public Double getCost() {
-        return cost;
+    public Double getIncome() {
+        return income;
     }
 
-    public void setCost(Double cost) {
-        this.cost = cost;
+    public void setIncome(Double income) {
+        this.income = income;
     }
 
     @Override
     public String toString() {
-        return "Record{" +
+        return "IncomeRecord{" +
                 "id=" + id +
                 ", uid=" + uid +
                 ", date=" + date +
                 ", category='" + category + '\'' +
                 ", type='" + type + '\'' +
-                ", cost=" + cost +
+                ", income=" + income +
                 '}';
     }
 }

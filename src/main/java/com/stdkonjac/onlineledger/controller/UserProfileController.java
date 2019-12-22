@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
-@RequestMapping("/UserProfile")
+@RequestMapping("/userProfile")
 public class UserProfileController {
     @Autowired
     private UserProfileService userProfileService;

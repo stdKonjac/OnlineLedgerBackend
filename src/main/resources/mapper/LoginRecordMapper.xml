@@ -7,8 +7,8 @@
             resultType="com.stdkonjac.onlineledger.entity.LoginRecord">
         select * from login_record
         <where>
-            <if test="IP != null">
-                and IP = #{IP}
+            <if test="ip != null">
+                and ip = #{ip}
             </if>
             <if test="uid != null">
                 and uid = #{uid}
@@ -31,8 +31,8 @@
     <insert id="insertLoginRecord">
         insert into login_record
         <set>
-            <if test="IP != null">
-                IP = #{IP},
+            <if test="ip != null">
+                ip = #{ip},
             </if>
             <if test="uid != null">
                 uid = #{uid},
@@ -49,8 +49,8 @@
     <delete id="deleteLoginRecord">
         delete from login_record
         <where>
-            <if test="IP != null">
-                and IP = #{IP}
+            <if test="ip != null">
+                and ip = #{ip}
             </if>
             <if test="uid != null">
                 and uid = #{uid}
@@ -78,8 +78,8 @@
             </if>
         </set>
         <where>
-            <if test="IP != null">
-                and IP = #{IP}
+            <if test="ip != null">
+                and ip = #{ip}
             </if>
         </where>
     </update>

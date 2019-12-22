@@ -12,7 +12,7 @@ import java.util.List;
 public interface LoginRecordDao {
 
     List<LoginRecord> selectLoginRecord(
-            @Param("IP") String IP,
+            @Param("ip") String ip,
             @Param("uid") Integer uid,
             @Param("username") String username,
             @Param("date") Date date);
@@ -20,21 +20,21 @@ public interface LoginRecordDao {
     List<LoginRecord> selectAllLoginRecord();
 
     void insertLoginRecord(
-            @Param("IP") String IP,
+            @Param("ip") String ip,
             @Param("uid") Integer uid,
             @Param("username") String username,
             @Param("date") Date date);
 
 
     void deleteLoginRecord(
-            @Param("IP") String IP,
+            @Param("ip") String ip,
             @Param("uid") Integer uid,
             @Param("username") String username,
             @Param("date") Date date);
 
 
     void updateLoginRecord(
-            @Param("IP") String IP,
+            @Param("ip") String ip,
             @Param("uid") Integer uid,
             @Param("username") String username,
             @Param("date") Date date);

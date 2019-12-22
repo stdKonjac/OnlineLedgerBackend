@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class LoginRecord {
     private Integer id;
-    private String IP;
+    private String ip;
     private Integer uid;
     private String username;
     private Date date;
@@ -17,12 +17,12 @@ public class LoginRecord {
         this.id = id;
     }
 
-    public String getIP() {
-        return IP;
+    public String getIp() {
+        return ip;
     }
 
-    public void setIP(String IP) {
-        this.IP = IP;
+    public void setIp(String ip) {
+        this.ip = ip;
     }
 
     public Integer getUid() {
@@ -53,7 +53,7 @@ public class LoginRecord {
     public String toString() {
         return "LoginRecord{" +
                 "id=" + id +
-                ", IP='" + IP + '\'' +
+                ", ip='" + ip + '\'' +
                 ", uid=" + uid +
                 ", username='" + username + '\'' +
                 ", date=" + date +
