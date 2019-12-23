@@ -1,6 +1,5 @@
 package com.stdkonjac.onlineledger.dao;
 
-import com.stdkonjac.onlineledger.entity.User;
 import com.stdkonjac.onlineledger.entity.UserProfile;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

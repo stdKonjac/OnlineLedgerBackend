@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.stdkonjac.onlineledger.dao.WishRecordDao">
+    <select id="selectWishRecord"
+            resultType="com.stdkonjac.onlineledger.entity.WishRecord">
+        select * from wish_record
+        <where>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+            <if test="wish != null">
+                and wish = #{wish}
+            </if>
+            <if test="remark != null">
+                and remark = #{remark}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectAllWishRecord"
+            resultType="com.stdkonjac.onlineledger.entity.WishRecord">
+        select *
+        from wish_record
+    </select>
+
+    <insert id="insertWishRecord">
+        insert into wish_record
+        <set>
+            <if test="uid != null">
+                uid = #{uid},
+            </if>
+            <if test="wish != null">
+                wish = #{wish},
+            </if>
+            <if test="remark != null">
+                remark = #{remark},
+            </if>
+        </set>
+    </insert>
+
+    <delete id="deleteWishRecord">
+        delete from wish_record
+        <where>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+            <if test="wish != null">
+                and wish = #{wish}
+            </if>
+            <if test="remark != null">
+                and remark = #{remark}
+            </if>
+        </where>
+    </delete>
+
+    <update id="updateWishRecord">
+        update wish_record
+        <set>
+            <if test="wish != null">
+                wish = #{wish},
+            </if>
+            <if test="remark != null">
+                remark = #{remark},
+            </if>
+        </set>
+        <where>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+        </where>
+    </update>
+</mapper>
