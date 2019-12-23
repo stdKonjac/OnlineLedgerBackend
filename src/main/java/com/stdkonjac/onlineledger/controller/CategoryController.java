@@ -21,7 +21,7 @@ public class CategoryController {
     public List<Category> query(HttpServletRequest request) {
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String name = request.getParameter("name");
-        Integer recordCount = ParseUtil.str2Int(request.getParameter("record_count"));
+        Integer recordCount = ParseUtil.str2Int(request.getParameter("recordCount"));
         return categoryService.selectCategory(uid, name, recordCount);
     }
 
@@ -34,7 +34,7 @@ public class CategoryController {
     public void insert(HttpServletRequest request) {
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String name = request.getParameter("name");
-        Integer recordCount = ParseUtil.str2Int(request.getParameter("record_count"));
+        Integer recordCount = ParseUtil.str2Int(request.getParameter("recordCount"));
         categoryService.insertCategory(uid, name, recordCount);
     }
 
@@ -42,7 +42,7 @@ public class CategoryController {
     public void delete(HttpServletRequest request) {
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String name = request.getParameter("name");
-        Integer recordCount = ParseUtil.str2Int(request.getParameter("record_count"));
+        Integer recordCount = ParseUtil.str2Int(request.getParameter("recordCount"));
         categoryService.deleteCategory(uid, name, recordCount);
     }
 
@@ -50,7 +50,7 @@ public class CategoryController {
     public void update(HttpServletRequest request) {
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String name = request.getParameter("name");
-        Integer recordCount = ParseUtil.str2Int(request.getParameter("record_count"));
+        Integer recordCount = ParseUtil.str2Int(request.getParameter("recordCount"));
         categoryService.updateCategory(uid, name, recordCount);
     }
 

@@ -21,11 +21,11 @@ public class ParseUtil {
         }
     }
 
-    public static Date str2Date(String str) {
+    public static Date str2Date(String str, String pattern) {
         if (str == null) {
             return null;
         } else {
-            return DateUtil.str2Date(str);
+            return DateUtil.str2Date(str, pattern);
         }
     }
 }

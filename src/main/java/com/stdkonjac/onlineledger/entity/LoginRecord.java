@@ -7,7 +7,7 @@ public class LoginRecord {
     private String ip;
     private Integer uid;
     private String username;
-    private Date date;
+    private Date loginTime;
 
     public Integer getId() {
         return id;
@@ -41,12 +41,12 @@ public class LoginRecord {
         this.username = username;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getLoginTime() {
+        return loginTime;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setLoginTime(Date loginTime) {
+        this.loginTime = loginTime;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class LoginRecord {
                 ", ip='" + ip + '\'' +
                 ", uid=" + uid +
                 ", username='" + username + '\'' +
-                ", date=" + date +
+                ", loginTime=" + loginTime +
                 '}';
     }
 }

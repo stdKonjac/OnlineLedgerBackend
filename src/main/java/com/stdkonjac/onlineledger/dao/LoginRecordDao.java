@@ -15,7 +15,7 @@ public interface LoginRecordDao {
             @Param("ip") String ip,
             @Param("uid") Integer uid,
             @Param("username") String username,
-            @Param("date") Date date);
+            @Param("login_time") Date loginTime);
 
     List<LoginRecord> selectAllLoginRecord();
 
@@ -23,20 +23,20 @@ public interface LoginRecordDao {
             @Param("ip") String ip,
             @Param("uid") Integer uid,
             @Param("username") String username,
-            @Param("date") Date date);
+            @Param("login_time") Date loginTime);
 
 
     void deleteLoginRecord(
             @Param("ip") String ip,
             @Param("uid") Integer uid,
             @Param("username") String username,
-            @Param("date") Date date);
+            @Param("login_time") Date loginTime);
 
 
     void updateLoginRecord(
             @Param("ip") String ip,
             @Param("uid") Integer uid,
             @Param("username") String username,
-            @Param("date") Date date);
+            @Param("login_time") Date loginTime);
 
 }

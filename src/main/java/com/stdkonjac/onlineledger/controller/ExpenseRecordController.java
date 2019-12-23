@@ -20,7 +20,8 @@ public class ExpenseRecordController {
     @RequestMapping("/query")
     public List<ExpenseRecord> query(HttpServletRequest request) {
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
-        Date date = ParseUtil.str2Date(request.getParameter("date"));
+        Date date = ParseUtil.str2Date(request.getParameter("date"),
+                "yyyy-MM-dd");
         String category = request.getParameter("category");
         String type = request.getParameter("type");
         Double expense = ParseUtil.str2Double(request.getParameter("expense"));
@@ -37,7 +38,8 @@ public class ExpenseRecordController {
     @RequestMapping("/insert")
     public void insert(HttpServletRequest request) {
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
-        Date date = ParseUtil.str2Date(request.getParameter("date"));
+        Date date = ParseUtil.str2Date(request.getParameter("date"),
+                "yyyy-MM-dd");
         String category = request.getParameter("category");
         String type = request.getParameter("type");
         Double expense = ParseUtil.str2Double(request.getParameter("expense"));
@@ -49,7 +51,8 @@ public class ExpenseRecordController {
     @RequestMapping("/delete")
     public void delete(HttpServletRequest request) {
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
-        Date date = ParseUtil.str2Date(request.getParameter("date"));
+        Date date = ParseUtil.str2Date(request.getParameter("date"),
+                "yyyy-MM-dd");
         String category = request.getParameter("category");
         String type = request.getParameter("type");
         Double expense = ParseUtil.str2Double(request.getParameter("expense"));
@@ -61,7 +64,8 @@ public class ExpenseRecordController {
     @RequestMapping("/update")
     public void update(HttpServletRequest request) {
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
-        Date date = ParseUtil.str2Date(request.getParameter("date"));
+        Date date = ParseUtil.str2Date(request.getParameter("date"),
+                "yyyy-MM-dd");
         String category = request.getParameter("category");
         String type = request.getParameter("type");
         Double expense = ParseUtil.str2Double(request.getParameter("expense"));

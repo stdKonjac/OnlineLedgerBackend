@@ -16,8 +16,8 @@
             <if test="username != null">
                 and username = #{username}
             </if>
-            <if test="date != null">
-                and date = #{date}
+            <if test="login_time != null">
+                and login_time = #{login_time}
             </if>
         </where>
     </select>
@@ -40,8 +40,8 @@
             <if test="username != null">
                 username = #{username},
             </if>
-            <if test="date != null">
-                date = #{date},
+            <if test="login_time != null">
+                login_time = #{login_time},
             </if>
         </set>
     </insert>
@@ -58,8 +58,8 @@
             <if test="username != null">
                 and username = #{username}
             </if>
-            <if test="date != null">
-                and date = #{date}
+            <if test="login_time != null">
+                and login_time = #{login_time}
             </if>
         </where>
     </delete>
@@ -73,8 +73,8 @@
             <if test="username != null">
                 username = #{username},
             </if>
-            <if test="date != null">
-                date = #{date},
+            <if test="login_time != null">
+                login_time = #{login_time},
             </if>
         </set>
         <where>

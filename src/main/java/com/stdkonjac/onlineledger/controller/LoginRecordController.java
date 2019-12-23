@@ -22,8 +22,9 @@ public class LoginRecordController {
         String ip = IpUtil.getIpAddress(request);
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String username = request.getParameter("username");
-        Date date = ParseUtil.str2Date(request.getParameter("date"));
-        return loginRecordService.selectLoginRecord(ip, uid, username, date);
+        Date loginTime = ParseUtil.str2Date(request.getParameter("loginTime"),
+                "yyyy-MM-dd HH-mm-ss");
+        return loginRecordService.selectLoginRecord(ip, uid, username, loginTime);
     }
 
     @RequestMapping("/queryAll")
@@ -36,8 +37,9 @@ public class LoginRecordController {
         String ip = IpUtil.getIpAddress(request);
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String username = request.getParameter("username");
-        Date date = ParseUtil.str2Date(request.getParameter("date"));
-        loginRecordService.insertLoginRecord(ip, uid, username, date);
+        Date loginTime = ParseUtil.str2Date(request.getParameter("loginTime"),
+                "yyyy-MM-dd HH-mm-ss");
+        loginRecordService.insertLoginRecord(ip, uid, username, loginTime);
     }
 
     @RequestMapping("/delete")
@@ -45,8 +47,9 @@ public class LoginRecordController {
         String ip = IpUtil.getIpAddress(request);
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String username = request.getParameter("username");
-        Date date = ParseUtil.str2Date(request.getParameter("date"));
-        loginRecordService.deleteLoginRecord(ip, uid, username, date);
+        Date loginTime = ParseUtil.str2Date(request.getParameter("loginTime"),
+                "yyyy-MM-dd HH-mm-ss");
+        loginRecordService.deleteLoginRecord(ip, uid, username, loginTime);
     }
 
     @RequestMapping("/update")
@@ -54,8 +57,9 @@ public class LoginRecordController {
         String ip = IpUtil.getIpAddress(request);
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String username = request.getParameter("username");
-        Date date = ParseUtil.str2Date(request.getParameter("date"));
-        loginRecordService.updateLoginRecord(ip, uid, username, date);
+        Date loginTime = ParseUtil.str2Date(request.getParameter("loginTime"),
+                "yyyy-MM-dd HH-mm-ss");
+        loginRecordService.updateLoginRecord(ip, uid, username, loginTime);
     }
 
 }

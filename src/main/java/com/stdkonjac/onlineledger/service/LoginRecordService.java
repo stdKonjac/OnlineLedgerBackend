@@ -17,8 +17,8 @@ public class LoginRecordService {
             String ip,
             Integer uid,
             String username,
-            Date date) {
-        return loginRecordDao.selectLoginRecord(ip, uid, username, date);
+            Date loginTime) {
+        return loginRecordDao.selectLoginRecord(ip, uid, username, loginTime);
     }
 
     public List<LoginRecord> selectAllLoginRecord() {
@@ -29,24 +29,24 @@ public class LoginRecordService {
             String ip,
             Integer uid,
             String username,
-            Date date) {
-        loginRecordDao.insertLoginRecord(ip, uid, username, date);
+            Date loginTime) {
+        loginRecordDao.insertLoginRecord(ip, uid, username, loginTime);
     }
 
     public void deleteLoginRecord(
             String ip,
             Integer uid,
             String username,
-            Date date) {
-        loginRecordDao.deleteLoginRecord(ip, uid, username, date);
+            Date loginTime) {
+        loginRecordDao.deleteLoginRecord(ip, uid, username, loginTime);
     }
 
     public void updateLoginRecord(
             String ip,
             Integer uid,
             String username,
-            Date date) {
-        loginRecordDao.updateLoginRecord(ip, uid, username, date);
+            Date loginTime) {
+        loginRecordDao.updateLoginRecord(ip, uid, username, loginTime);
     }
 
 }
