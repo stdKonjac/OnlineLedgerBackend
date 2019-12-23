@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.stdkonjac.onlineledger.dao.LogoutRecordDao">
+    <select id="selectLogoutRecord"
+            resultType="com.stdkonjac.onlineledger.entity.LogoutRecord">
+        select * from logout_record
+        <where>
+            <if test="ip != null">
+                and ip = #{ip}
+            </if>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+            <if test="username != null">
+                and username = #{username}
+            </if>
+            <if test="logout_time != null">
+                and logout_time = #{logout_time}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectAllLogoutRecord"
+            resultType="com.stdkonjac.onlineledger.entity.LogoutRecord">
+        select *
+        from logout_record
+    </select>
+
+    <insert id="insertLogoutRecord">
+        insert into logout_record
+        <set>
+            <if test="ip != null">
+                ip = #{ip},
+            </if>
+            <if test="uid != null">
+                uid = #{uid},
+            </if>
+            <if test="username != null">
+                username = #{username},
+            </if>
+            <if test="logout_time != null">
+                logout_time = #{logout_time},
+            </if>
+        </set>
+    </insert>
+
+    <delete id="deleteLogoutRecord">
+        delete from logout_record
+        <where>
+            <if test="ip != null">
+                and ip = #{ip}
+            </if>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+            <if test="username != null">
+                and username = #{username}
+            </if>
+            <if test="logout_time != null">
+                and logout_time = #{logout_time}
+            </if>
+        </where>
+    </delete>
+
+    <update id="updateLogoutRecord">
+        update logout_record
+        <set>
+            <if test="uid != null">
+                uid = #{uid},
+            </if>
+            <if test="username != null">
+                username = #{username},
+            </if>
+            <if test="logout_time != null">
+                logout_time = #{logout_time},
+            </if>
+        </set>
+        <where>
+            <if test="ip != null">
+                and ip = #{ip}
+            </if>
+        </where>
+    </update>
+</mapper>

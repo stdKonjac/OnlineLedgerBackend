@@ -5,7 +5,7 @@ import com.stdkonjac.onlineledger.entity.LoginRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Service
@@ -17,7 +17,7 @@ public class LoginRecordService {
             String ip,
             Integer uid,
             String username,
-            Date loginTime) {
+            Timestamp loginTime) {
         return loginRecordDao.selectLoginRecord(ip, uid, username, loginTime);
     }
 
@@ -29,7 +29,7 @@ public class LoginRecordService {
             String ip,
             Integer uid,
             String username,
-            Date loginTime) {
+            Timestamp loginTime) {
         loginRecordDao.insertLoginRecord(ip, uid, username, loginTime);
     }
 
@@ -37,7 +37,7 @@ public class LoginRecordService {
             String ip,
             Integer uid,
             String username,
-            Date loginTime) {
+            Timestamp loginTime) {
         loginRecordDao.deleteLoginRecord(ip, uid, username, loginTime);
     }
 
@@ -45,7 +45,7 @@ public class LoginRecordService {
             String ip,
             Integer uid,
             String username,
-            Date loginTime) {
+            Timestamp loginTime) {
         loginRecordDao.updateLoginRecord(ip, uid, username, loginTime);
     }
 

@@ -3,12 +3,12 @@ package com.stdkonjac.onlineledger.entity;
 import java.sql.Timestamp;
 import java.util.Date;
 
-public class LoginRecord {
+public class LogoutRecord {
     private Integer id;
     private String ip;
     private Integer uid;
     private String username;
-    private Timestamp loginTime;
+    private Timestamp logoutTime;
 
     public Integer getId() {
         return id;
@@ -42,22 +42,22 @@ public class LoginRecord {
         this.username = username;
     }
 
-    public Timestamp getLoginTime() {
-        return loginTime;
+    public Timestamp getLogoutTime() {
+        return logoutTime;
     }
 
-    public void setLoginTime(Timestamp loginTime) {
-        this.loginTime = loginTime;
+    public void setLogoutTime(Timestamp logoutTime) {
+        this.logoutTime = logoutTime;
     }
 
     @Override
     public String toString() {
-        return "LoginRecord{" +
+        return "LogoutRecord{" +
                 "id=" + id +
                 ", ip='" + ip + '\'' +
                 ", uid=" + uid +
                 ", username='" + username + '\'' +
-                ", loginTime=" + loginTime +
+                ", logoutTime=" + logoutTime +
                 '}';
     }
 }

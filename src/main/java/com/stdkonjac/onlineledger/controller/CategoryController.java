@@ -1,7 +1,6 @@
 package com.stdkonjac.onlineledger.controller;
 
 import com.stdkonjac.onlineledger.entity.Category;
-import com.stdkonjac.onlineledger.entity.User;
 import com.stdkonjac.onlineledger.service.CategoryService;
 import com.stdkonjac.onlineledger.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,8 @@ public class CategoryController {
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String name = request.getParameter("name");
         Integer recordCount = ParseUtil.str2Int(request.getParameter("recordCount"));
-        return categoryService.selectCategory(uid, name, recordCount);
+        Double budget = ParseUtil.str2Double(request.getParameter("budget"));
+        return categoryService.selectCategory(uid, name, recordCount, budget);
     }
 
     @RequestMapping("/queryAll")
@@ -35,7 +35,8 @@ public class CategoryController {
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String name = request.getParameter("name");
         Integer recordCount = ParseUtil.str2Int(request.getParameter("recordCount"));
-        categoryService.insertCategory(uid, name, recordCount);
+        Double budget = ParseUtil.str2Double(request.getParameter("budget"));
+        categoryService.insertCategory(uid, name, recordCount, budget);
     }
 
     @RequestMapping("/delete")
@@ -43,7 +44,8 @@ public class CategoryController {
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String name = request.getParameter("name");
         Integer recordCount = ParseUtil.str2Int(request.getParameter("recordCount"));
-        categoryService.deleteCategory(uid, name, recordCount);
+        Double budget = ParseUtil.str2Double(request.getParameter("budget"));
+        categoryService.deleteCategory(uid, name, recordCount, budget);
     }
 
     @RequestMapping("/update")
@@ -51,7 +53,8 @@ public class CategoryController {
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String name = request.getParameter("name");
         Integer recordCount = ParseUtil.str2Int(request.getParameter("recordCount"));
-        categoryService.updateCategory(uid, name, recordCount);
+        Double budget = ParseUtil.str2Double(request.getParameter("budget"));
+        categoryService.updateCategory(uid, name, recordCount, budget);
     }
 
 }

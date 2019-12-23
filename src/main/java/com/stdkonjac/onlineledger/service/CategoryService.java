@@ -15,8 +15,9 @@ public class CategoryService {
     public List<Category> selectCategory(
             Integer uid,
             String name,
-            Integer recordCount) {
-        return categoryDao.selectCategory(uid, name, recordCount);
+            Integer recordCount,
+            Double budget) {
+        return categoryDao.selectCategory(uid, name, recordCount, budget);
     }
 
     public List<Category> selectAllCategory() {
@@ -26,22 +27,25 @@ public class CategoryService {
     public void insertCategory(
             Integer uid,
             String name,
-            Integer recordCount) {
-        categoryDao.insertCategory(uid, name, recordCount);
+            Integer recordCount,
+            Double budget) {
+        categoryDao.insertCategory(uid, name, recordCount, budget);
     }
 
     public void deleteCategory(
             Integer uid,
             String name,
-            Integer recordCount) {
-        categoryDao.deleteCategory(uid, name, recordCount);
+            Integer recordCount,
+            Double budget) {
+        categoryDao.deleteCategory(uid, name, recordCount, budget);
     }
 
     public void updateCategory(
             Integer uid,
             String name,
-            Integer recordCount) {
-        categoryDao.updateCategory(uid, name, recordCount);
+            Integer recordCount,
+            Double budget) {
+        categoryDao.updateCategory(uid, name, recordCount, budget);
     }
 
 }

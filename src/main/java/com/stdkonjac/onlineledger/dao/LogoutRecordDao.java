@@ -1,6 +1,6 @@
 package com.stdkonjac.onlineledger.dao;
 
-import com.stdkonjac.onlineledger.entity.LoginRecord;
+import com.stdkonjac.onlineledger.entity.LogoutRecord;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -9,34 +9,34 @@ import java.util.Date;
 import java.util.List;
 
 @Mapper
-public interface LoginRecordDao {
+public interface LogoutRecordDao {
 
-    List<LoginRecord> selectLoginRecord(
+    List<LogoutRecord> selectLogoutRecord(
             @Param("ip") String ip,
             @Param("uid") Integer uid,
             @Param("username") String username,
-            @Param("login_time") Timestamp loginTime);
+            @Param("logout_time") Timestamp logoutTime);
 
-    List<LoginRecord> selectAllLoginRecord();
+    List<LogoutRecord> selectAllLogoutRecord();
 
-    void insertLoginRecord(
+    void insertLogoutRecord(
             @Param("ip") String ip,
             @Param("uid") Integer uid,
             @Param("username") String username,
-            @Param("login_time") Timestamp loginTime);
+            @Param("logout_time") Timestamp logoutTime);
 
 
-    void deleteLoginRecord(
+    void deleteLogoutRecord(
             @Param("ip") String ip,
             @Param("uid") Integer uid,
             @Param("username") String username,
-            @Param("login_time") Timestamp loginTime);
+            @Param("logout_time") Timestamp logoutTime);
 
 
-    void updateLoginRecord(
+    void updateLogoutRecord(
             @Param("ip") String ip,
             @Param("uid") Integer uid,
             @Param("username") String username,
-            @Param("login_time") Timestamp loginTime);
+            @Param("logout_time") Timestamp logoutTime);
 
 }

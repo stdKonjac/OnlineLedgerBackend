@@ -5,6 +5,7 @@ public class Category {
     private Integer uid;
     private String name;
     private Integer recordCount;
+    private Double budget;
 
     public Integer getId() {
         return id;
@@ -38,6 +39,14 @@ public class Category {
         this.recordCount = recordCount;
     }
 
+    public Double getBudget() {
+        return budget;
+    }
+
+    public void setBudget(Double budget) {
+        this.budget = budget;
+    }
+
     @Override
     public String toString() {
         return "Category{" +
@@ -45,6 +54,7 @@ public class Category {
                 ", uid=" + uid +
                 ", name='" + name + '\'' +
                 ", recordCount=" + recordCount +
+                ", budget=" + budget +
                 '}';
     }
 }

@@ -16,6 +16,9 @@
             <if test="record_count != null">
                 and record_count = #{record_count}
             </if>
+            <if test="budget != null">
+                and budget = #{budget}
+            </if>
         </where>
     </select>
 
@@ -35,7 +38,10 @@
                 name = #{name},
             </if>
             <if test="record_count != null">
-                record_count = #{record_count}
+                record_count = #{record_count},
+            </if>
+            <if test="budget != null">
+                budget = #{budget},
             </if>
         </set>
     </insert>
@@ -52,6 +58,9 @@
             <if test="record_count != null">
                 and record_count = #{record_count}
             </if>
+            <if test="budget != null">
+                and budget = #{budget}
+            </if>
         </where>
     </delete>
 
@@ -63,6 +72,9 @@
             </if>
             <if test="record_count != null">
                 record_count = #{record_count},
+            </if>
+            <if test="budget != null">
+                budget = #{budget},
             </if>
         </set>
         <where>
