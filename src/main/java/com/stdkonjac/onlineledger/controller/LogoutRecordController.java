@@ -1,15 +1,19 @@
 package com.stdkonjac.onlineledger.controller;
 
+import com.stdkonjac.onlineledger.entity.LoginRecord;
 import com.stdkonjac.onlineledger.entity.LogoutRecord;
 import com.stdkonjac.onlineledger.service.LogoutRecordService;
 import com.stdkonjac.onlineledger.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/logoutRecord")
@@ -17,7 +21,7 @@ public class LogoutRecordController {
     @Autowired
     private LogoutRecordService logoutRecordService;
 
-    @RequestMapping("/query")
+    @RequestMapping(value = "/query", method = {RequestMethod.GET})
     public List<LogoutRecord> query(HttpServletRequest request) {
         String ip = IpUtil.getIpAddress(request);
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
@@ -26,12 +30,12 @@ public class LogoutRecordController {
         return logoutRecordService.selectLogoutRecord(ip, uid, username, logoutTime);
     }
 
-    @RequestMapping("/queryAll")
+    @RequestMapping(value = "/queryAll", method = {RequestMethod.GET})
     public List<LogoutRecord> queryAll() {
         return logoutRecordService.selectAllLogoutRecord();
     }
 
-    @RequestMapping("/insert")
+    @RequestMapping(value = "/insert", method = {RequestMethod.GET})
     public void insert(HttpServletRequest request) {
         String ip = IpUtil.getIpAddress(request);
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
@@ -40,7 +44,7 @@ public class LogoutRecordController {
         logoutRecordService.insertLogoutRecord(ip, uid, username, logoutTime);
     }
 
-    @RequestMapping("/delete")
+    @RequestMapping(value = "/delete", method = {RequestMethod.GET})
     public void delete(HttpServletRequest request) {
         String ip = IpUtil.getIpAddress(request);
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
@@ -49,12 +53,53 @@ public class LogoutRecordController {
         logoutRecordService.deleteLogoutRecord(ip, uid, username, logoutTime);
     }
 
-    @RequestMapping("/update")
+    @RequestMapping(value = "/update", method = {RequestMethod.GET})
     public void update(HttpServletRequest request) {
         String ip = IpUtil.getIpAddress(request);
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         String username = request.getParameter("username");
         Timestamp logoutTime = ParseUtil.str2Timestamp(request.getParameter("logoutTime"));
+        logoutRecordService.updateLogoutRecord(ip, uid, username, logoutTime);
+    }
+
+    @RequestMapping(value = "/queryByJson", method = {RequestMethod.POST})
+    public List<LogoutRecord> queryByJson(@RequestBody Map params) {
+        String ip = ParseUtil.obj2String(params.get("ip"));
+        Integer uid = ParseUtil.obj2Int(params.get("uid"));
+        String username = ParseUtil.obj2String(params.get("username"));
+        Timestamp logoutTime = ParseUtil.obj2Timestamp(params.get("logoutTime"));
+        return logoutRecordService.selectLogoutRecord(ip, uid, username, logoutTime);
+    }
+
+    @RequestMapping(value = "/queryAllByJson", method = {RequestMethod.POST})
+    public List<LogoutRecord> queryAllByJson(@RequestBody Map params) {
+        return logoutRecordService.selectAllLogoutRecord();
+    }
+
+    @RequestMapping(value = "/insertByJson", method = {RequestMethod.POST})
+    public void insertByJson(@RequestBody Map params) {
+        String ip = ParseUtil.obj2String(params.get("ip"));
+        Integer uid = ParseUtil.obj2Int(params.get("uid"));
+        String username = ParseUtil.obj2String(params.get("username"));
+        Timestamp logoutTime = ParseUtil.obj2Timestamp(params.get("logoutTime"));
+        logoutRecordService.insertLogoutRecord(ip, uid, username, logoutTime);
+    }
+
+    @RequestMapping(value = "/deleteByJson", method = {RequestMethod.POST})
+    public void deleteByJson(@RequestBody Map params) {
+        String ip = ParseUtil.obj2String(params.get("ip"));
+        Integer uid = ParseUtil.obj2Int(params.get("uid"));
+        String username = ParseUtil.obj2String(params.get("username"));
+        Timestamp logoutTime = ParseUtil.obj2Timestamp(params.get("logoutTime"));
+        logoutRecordService.deleteLogoutRecord(ip, uid, username, logoutTime);
+    }
+
+    @RequestMapping(value = "/updateByJson", method = {RequestMethod.POST})
+    public void updateByJson(@RequestBody Map params) {
+        String ip = ParseUtil.obj2String(params.get("ip"));
+        Integer uid = ParseUtil.obj2Int(params.get("uid"));
+        String username = ParseUtil.obj2String(params.get("username"));
+        Timestamp logoutTime = ParseUtil.obj2Timestamp(params.get("logoutTime"));
         logoutRecordService.updateLogoutRecord(ip, uid, username, logoutTime);
     }
 

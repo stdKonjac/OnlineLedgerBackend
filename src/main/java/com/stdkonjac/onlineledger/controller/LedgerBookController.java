@@ -1,14 +1,19 @@
 package com.stdkonjac.onlineledger.controller;
 
+import com.stdkonjac.onlineledger.entity.IncomeRecord;
 import com.stdkonjac.onlineledger.entity.LedgerBook;
 import com.stdkonjac.onlineledger.service.LedgerBookService;
 import com.stdkonjac.onlineledger.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/ledgerBook")
@@ -57,4 +62,44 @@ public class LedgerBookController {
         ledgerBookService.updateLedgerBook(uid, name, recordCount, budget);
     }
 
+    @RequestMapping(value = "/queryByJson", method = {RequestMethod.POST})
+    public List<LedgerBook> queryByJson(@RequestBody Map params) {
+        Integer uid = ParseUtil.obj2Int(params.get("uid"));
+        String name = ParseUtil.obj2String(params.get("name"));
+        Integer recordCount = ParseUtil.obj2Int(params.get("recordCount"));
+        Double budget = ParseUtil.obj2Double(params.get("budget"));
+        return ledgerBookService.selectLedgerBook(uid, name, recordCount, budget);
+    }
+
+    @RequestMapping(value = "/queryAllByJson", method = {RequestMethod.POST})
+    public List<LedgerBook> queryAllByJson(@RequestBody Map params) {
+        return ledgerBookService.selectAllLedgerBook();
+    }
+
+    @RequestMapping(value = "/insertByJson", method = {RequestMethod.POST})
+    public void insertByJson(@RequestBody Map params) {
+        Integer uid = ParseUtil.obj2Int(params.get("uid"));
+        String name = ParseUtil.obj2String(params.get("name"));
+        Integer recordCount = ParseUtil.obj2Int(params.get("recordCount"));
+        Double budget = ParseUtil.obj2Double(params.get("budget"));
+        ledgerBookService.insertLedgerBook(uid, name, recordCount, budget);
+    }
+
+    @RequestMapping(value = "/deleteByJson", method = {RequestMethod.POST})
+    public void deleteByJson(@RequestBody Map params) {
+        Integer uid = ParseUtil.obj2Int(params.get("uid"));
+        String name = ParseUtil.obj2String(params.get("name"));
+        Integer recordCount = ParseUtil.obj2Int(params.get("recordCount"));
+        Double budget = ParseUtil.obj2Double(params.get("budget"));
+        ledgerBookService.deleteLedgerBook(uid, name, recordCount, budget);
+    }
+
+    @RequestMapping(value = "/updateByJson", method = {RequestMethod.POST})
+    public void updateByJson(@RequestBody Map params) {
+        Integer uid = ParseUtil.obj2Int(params.get("uid"));
+        String name = ParseUtil.obj2String(params.get("name"));
+        Integer recordCount = ParseUtil.obj2Int(params.get("recordCount"));
+        Double budget = ParseUtil.obj2Double(params.get("budget"));
+        ledgerBookService.updateLedgerBook(uid, name, recordCount, budget);
+    }
 }

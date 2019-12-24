@@ -46,4 +46,43 @@ public class ParseUtil {
         return new Timestamp(date.getTime());
     }
 
+    public static String obj2String(Object obj) {
+        if (obj == null) {
+            return null;
+        } else {
+            return obj.toString();
+        }
+    }
+
+    public static Integer obj2Int(Object obj) {
+        if (obj == null) {
+            return null;
+        } else {
+            return str2Int(obj.toString());
+        }
+    }
+
+    public static Double obj2Double(Object obj) {
+        if (obj == null) {
+            return null;
+        } else {
+            return str2Double(obj.toString());
+        }
+    }
+
+    public static Date obj2Date(Object obj) {
+        if (obj == null) {
+            return null;
+        } else {
+            return str2Date(obj.toString());
+        }
+    }
+
+    public static Timestamp obj2Timestamp(Object obj) {
+        if (obj == null) {
+            return null;
+        } else {
+            return str2Timestamp(obj.toString());
+        }
+    }
 }
