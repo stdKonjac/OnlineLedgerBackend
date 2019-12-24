@@ -1,7 +1,6 @@
 package com.stdkonjac.onlineledger.service;
 
 import com.stdkonjac.onlineledger.dao.UserProfileDao;
-import com.stdkonjac.onlineledger.entity.User;
 import com.stdkonjac.onlineledger.entity.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,11 +13,13 @@ public class UserProfileService {
     private UserProfileDao userProfileDao;
 
     public List<UserProfile> selectUserProfile(
+            Integer id,
             Integer uid,
             String nickname,
             String phone,
             String email) {
-        return userProfileDao.selectUserProfile(uid, nickname, phone, email);
+        return userProfileDao.selectUserProfile(
+                id, uid, nickname, phone, email);
     }
 
     public List<UserProfile> selectAllUserProfile() {
@@ -26,27 +27,33 @@ public class UserProfileService {
     }
 
     public void insertUserProfile(
+            Integer id,
             Integer uid,
             String nickname,
             String phone,
             String email) {
-        userProfileDao.insertUserProfile(uid, nickname, phone, email);
+        userProfileDao.insertUserProfile(
+                id, uid, nickname, phone, email);
     }
 
     public void deleteUserProfile(
+            Integer id,
             Integer uid,
             String nickname,
             String phone,
             String email) {
-        userProfileDao.deleteUserProfile(uid, nickname, phone, email);
+        userProfileDao.deleteUserProfile(
+                id, uid, nickname, phone, email);
     }
 
     public void updateUserProfile(
+            Integer id,
             Integer uid,
             String nickname,
             String phone,
             String email) {
-        userProfileDao.updateUserProfile(uid, nickname, phone, email);
+        userProfileDao.updateUserProfile(
+                id, uid, nickname, phone, email);
     }
 
 }

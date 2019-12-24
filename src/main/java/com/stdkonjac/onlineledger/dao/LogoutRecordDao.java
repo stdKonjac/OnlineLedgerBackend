@@ -5,13 +5,13 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 @Mapper
 public interface LogoutRecordDao {
 
     List<LogoutRecord> selectLogoutRecord(
+            @Param("id") Integer id,
             @Param("ip") String ip,
             @Param("uid") Integer uid,
             @Param("username") String username,
@@ -20,6 +20,7 @@ public interface LogoutRecordDao {
     List<LogoutRecord> selectAllLogoutRecord();
 
     void insertLogoutRecord(
+            @Param("id") Integer id,
             @Param("ip") String ip,
             @Param("uid") Integer uid,
             @Param("username") String username,
@@ -27,6 +28,7 @@ public interface LogoutRecordDao {
 
 
     void deleteLogoutRecord(
+            @Param("id") Integer id,
             @Param("ip") String ip,
             @Param("uid") Integer uid,
             @Param("username") String username,
@@ -34,6 +36,7 @@ public interface LogoutRecordDao {
 
 
     void updateLogoutRecord(
+            @Param("id") Integer id,
             @Param("ip") String ip,
             @Param("uid") Integer uid,
             @Param("username") String username,

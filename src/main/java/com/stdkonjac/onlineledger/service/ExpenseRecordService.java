@@ -14,6 +14,7 @@ public class ExpenseRecordService {
     private ExpenseRecordDao expenseRecordDao;
 
     public List<ExpenseRecord> selectExpenseRecord(
+            Integer id,
             Integer uid,
             Date date,
             String category,
@@ -23,7 +24,7 @@ public class ExpenseRecordService {
             String remark,
             String ledgerBook) {
         return expenseRecordDao.selectExpenseRecord(
-                uid, date, category, type, expense, prepay, remark, ledgerBook);
+                id, uid, date, category, type, expense, prepay, remark, ledgerBook);
     }
 
     public List<ExpenseRecord> selectAllExpenseRecord() {
@@ -31,6 +32,7 @@ public class ExpenseRecordService {
     }
 
     public void insertExpenseRecord(
+            Integer id,
             Integer uid,
             Date date,
             String category,
@@ -40,10 +42,11 @@ public class ExpenseRecordService {
             String remark,
             String ledgerBook) {
         expenseRecordDao.insertExpenseRecord(
-                uid, date, category, type, expense, prepay, remark, ledgerBook);
+                id, uid, date, category, type, expense, prepay, remark, ledgerBook);
     }
 
     public void deleteExpenseRecord(
+            Integer id,
             Integer uid,
             Date date,
             String category,
@@ -53,10 +56,11 @@ public class ExpenseRecordService {
             String remark,
             String ledgerBook) {
         expenseRecordDao.deleteExpenseRecord(
-                uid, date, category, type, expense, prepay, remark, ledgerBook);
+                id, uid, date, category, type, expense, prepay, remark, ledgerBook);
     }
 
     public void updateExpenseRecord(
+            Integer id,
             Integer uid,
             Date date,
             String category,
@@ -66,7 +70,7 @@ public class ExpenseRecordService {
             String remark,
             String ledgerBook) {
         expenseRecordDao.updateExpenseRecord(
-                uid, date, category, type, expense, prepay, remark, ledgerBook);
+                id, uid, date, category, type, expense, prepay, remark, ledgerBook);
     }
 
 }

@@ -1,6 +1,5 @@
 package com.stdkonjac.onlineledger.controller;
 
-import com.stdkonjac.onlineledger.entity.ExpenseRecord;
 import com.stdkonjac.onlineledger.entity.IncomeRecord;
 import com.stdkonjac.onlineledger.service.IncomeRecordService;
 import com.stdkonjac.onlineledger.util.ParseUtil;
@@ -23,6 +22,7 @@ public class IncomeRecordController {
 
     @RequestMapping(value = "/query", method = {RequestMethod.GET})
     public List<IncomeRecord> query(HttpServletRequest request) {
+        Integer id = ParseUtil.str2Int(request.getParameter("id"));
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         Date date = ParseUtil.str2Date(request.getParameter("date"));
         String category = request.getParameter("category");
@@ -31,7 +31,7 @@ public class IncomeRecordController {
         String remark = request.getParameter("remark");
         String ledgerBook = request.getParameter("ledgerBook");
         return incomeRecordService.selectIncomeRecord(
-                uid, date, category, type, income, remark, ledgerBook);
+                id, uid, date, category, type, income, remark, ledgerBook);
     }
 
     @RequestMapping(value = "/queryAll", method = {RequestMethod.GET})
@@ -41,6 +41,7 @@ public class IncomeRecordController {
 
     @RequestMapping(value = "/insert", method = {RequestMethod.GET})
     public void insert(HttpServletRequest request) {
+        Integer id = ParseUtil.str2Int(request.getParameter("id"));
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         Date date = ParseUtil.str2Date(request.getParameter("date"));
         String category = request.getParameter("category");
@@ -49,11 +50,12 @@ public class IncomeRecordController {
         String remark = request.getParameter("remark");
         String ledgerBook = request.getParameter("ledgerBook");
         incomeRecordService.insertIncomeRecord(
-                uid, date, category, type, income, remark, ledgerBook);
+                id, uid, date, category, type, income, remark, ledgerBook);
     }
 
     @RequestMapping(value = "/delete", method = {RequestMethod.GET})
     public void delete(HttpServletRequest request) {
+        Integer id = ParseUtil.str2Int(request.getParameter("id"));
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         Date date = ParseUtil.str2Date(request.getParameter("date"));
         String category = request.getParameter("category");
@@ -62,11 +64,12 @@ public class IncomeRecordController {
         String remark = request.getParameter("remark");
         String ledgerBook = request.getParameter("ledgerBook");
         incomeRecordService.deleteIncomeRecord(
-                uid, date, category, type, income, remark, ledgerBook);
+                id, uid, date, category, type, income, remark, ledgerBook);
     }
 
     @RequestMapping(value = "/update", method = {RequestMethod.GET})
     public void update(HttpServletRequest request) {
+        Integer id = ParseUtil.str2Int(request.getParameter("id"));
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
         Date date = ParseUtil.str2Date(request.getParameter("date"));
         String category = request.getParameter("category");
@@ -75,11 +78,12 @@ public class IncomeRecordController {
         String remark = request.getParameter("remark");
         String ledgerBook = request.getParameter("ledgerBook");
         incomeRecordService.updateIncomeRecord(
-                uid, date, category, type, income, remark, ledgerBook);
+                id, uid, date, category, type, income, remark, ledgerBook);
     }
 
     @RequestMapping(value = "/queryByJson", method = {RequestMethod.POST})
     public List<IncomeRecord> queryByJson(@RequestBody Map params) {
+        Integer id = ParseUtil.obj2Int(params.get("id"));
         Integer uid = ParseUtil.obj2Int(params.get("uid"));
         Date date = ParseUtil.obj2Date(params.get("date"));
         String category = ParseUtil.obj2String(params.get("category"));
@@ -88,7 +92,7 @@ public class IncomeRecordController {
         String remark = ParseUtil.obj2String(params.get("remark"));
         String ledgerBook = ParseUtil.obj2String(params.get("ledgerBook"));
         return incomeRecordService.selectIncomeRecord(
-                uid, date, category, type, income, remark, ledgerBook);
+                id, uid, date, category, type, income, remark, ledgerBook);
     }
 
     @RequestMapping(value = "/queryAllByJson", method = {RequestMethod.POST})
@@ -98,6 +102,7 @@ public class IncomeRecordController {
 
     @RequestMapping(value = "/insertByJson", method = {RequestMethod.POST})
     public void insertByJson(@RequestBody Map params) {
+        Integer id = ParseUtil.obj2Int(params.get("id"));
         Integer uid = ParseUtil.obj2Int(params.get("uid"));
         Date date = ParseUtil.obj2Date(params.get("date"));
         String category = ParseUtil.obj2String(params.get("category"));
@@ -106,11 +111,12 @@ public class IncomeRecordController {
         String remark = ParseUtil.obj2String(params.get("remark"));
         String ledgerBook = ParseUtil.obj2String(params.get("ledgerBook"));
         incomeRecordService.insertIncomeRecord(
-                uid, date, category, type, income, remark, ledgerBook);
+                id, uid, date, category, type, income, remark, ledgerBook);
     }
 
     @RequestMapping(value = "/deleteByJson", method = {RequestMethod.POST})
     public void deleteByJson(@RequestBody Map params) {
+        Integer id = ParseUtil.obj2Int(params.get("id"));
         Integer uid = ParseUtil.obj2Int(params.get("uid"));
         Date date = ParseUtil.obj2Date(params.get("date"));
         String category = ParseUtil.obj2String(params.get("category"));
@@ -119,11 +125,12 @@ public class IncomeRecordController {
         String remark = ParseUtil.obj2String(params.get("remark"));
         String ledgerBook = ParseUtil.obj2String(params.get("ledgerBook"));
         incomeRecordService.deleteIncomeRecord(
-                uid, date, category, type, income, remark, ledgerBook);
+                id, uid, date, category, type, income, remark, ledgerBook);
     }
 
     @RequestMapping(value = "/updateByJson", method = {RequestMethod.POST})
     public void updateByJson(@RequestBody Map params) {
+        Integer id = ParseUtil.obj2Int(params.get("id"));
         Integer uid = ParseUtil.obj2Int(params.get("uid"));
         Date date = ParseUtil.obj2Date(params.get("date"));
         String category = ParseUtil.obj2String(params.get("category"));
@@ -132,7 +139,7 @@ public class IncomeRecordController {
         String remark = ParseUtil.obj2String(params.get("remark"));
         String ledgerBook = ParseUtil.obj2String(params.get("ledgerBook"));
         incomeRecordService.updateIncomeRecord(
-                uid, date, category, type, income, remark, ledgerBook);
+                id, uid, date, category, type, income, remark, ledgerBook);
     }
 
 

@@ -13,12 +13,13 @@ public class LedgerBookService {
     private LedgerBookDao ledgerBookDao;
 
     public List<LedgerBook> selectLedgerBook(
+            Integer id,
             Integer uid,
             String name,
             Integer recordCount,
             Double budget) {
         return ledgerBookDao.selectLedgerBook(
-                uid, name, recordCount, budget);
+                id, uid, name, recordCount, budget);
     }
 
     public List<LedgerBook> selectAllLedgerBook() {
@@ -26,30 +27,33 @@ public class LedgerBookService {
     }
 
     public void insertLedgerBook(
+            Integer id,
             Integer uid,
             String name,
             Integer recordCount,
             Double budget) {
         ledgerBookDao.insertLedgerBook(
-                uid, name, recordCount, budget);
+                id, uid, name, recordCount, budget);
     }
 
     public void deleteLedgerBook(
+            Integer id,
             Integer uid,
             String name,
             Integer recordCount,
             Double budget) {
         ledgerBookDao.deleteLedgerBook(
-                uid, name, recordCount, budget);
+                id, uid, name, recordCount, budget);
     }
 
     public void updateLedgerBook(
+            Integer id,
             Integer uid,
             String name,
             Integer recordCount,
             Double budget) {
         ledgerBookDao.updateLedgerBook(
-                uid, name, recordCount, budget);
+                id, uid, name, recordCount, budget);
     }
 
 }

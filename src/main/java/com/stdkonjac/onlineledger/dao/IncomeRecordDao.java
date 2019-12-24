@@ -11,6 +11,7 @@ import java.util.List;
 public interface IncomeRecordDao {
 
     List<IncomeRecord> selectIncomeRecord(
+            @Param("id") Integer id,
             @Param("uid") Integer uid,
             @Param("date") Date date,
             @Param("category") String category,
@@ -22,6 +23,7 @@ public interface IncomeRecordDao {
     List<IncomeRecord> selectAllIncomeRecord();
 
     void insertIncomeRecord(
+            @Param("id") Integer id,
             @Param("uid") Integer uid,
             @Param("date") Date date,
             @Param("category") String category,
@@ -32,6 +34,7 @@ public interface IncomeRecordDao {
 
 
     void deleteIncomeRecord(
+            @Param("id") Integer id,
             @Param("uid") Integer uid,
             @Param("date") Date date,
             @Param("category") String category,
@@ -42,6 +45,7 @@ public interface IncomeRecordDao {
 
 
     void updateIncomeRecord(
+            @Param("id") Integer id,
             @Param("uid") Integer uid,
             @Param("date") Date date,
             @Param("category") String category,

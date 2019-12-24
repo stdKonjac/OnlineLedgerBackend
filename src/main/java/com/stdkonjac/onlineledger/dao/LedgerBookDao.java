@@ -10,6 +10,7 @@ import java.util.List;
 public interface LedgerBookDao {
 
     List<LedgerBook> selectLedgerBook(
+            @Param("id") Integer id,
             @Param("uid") Integer uid,
             @Param("name") String name,
             @Param("record_count") Integer recordCount,
@@ -18,6 +19,7 @@ public interface LedgerBookDao {
     List<LedgerBook> selectAllLedgerBook();
 
     void insertLedgerBook(
+            @Param("id") Integer id,
             @Param("uid") Integer uid,
             @Param("name") String name,
             @Param("record_count") Integer recordCount,
@@ -25,6 +27,7 @@ public interface LedgerBookDao {
 
 
     void deleteLedgerBook(
+            @Param("id") Integer id,
             @Param("uid") Integer uid,
             @Param("name") String name,
             @Param("record_count") Integer recordCount,
@@ -32,6 +35,7 @@ public interface LedgerBookDao {
 
 
     void updateLedgerBook(
+            @Param("id") Integer id,
             @Param("uid") Integer uid,
             @Param("name") String name,
             @Param("record_count") Integer recordCount,

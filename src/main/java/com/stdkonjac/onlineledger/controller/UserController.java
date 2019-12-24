@@ -1,6 +1,5 @@
 package com.stdkonjac.onlineledger.controller;
 
-import com.stdkonjac.onlineledger.entity.LogoutRecord;
 import com.stdkonjac.onlineledger.entity.User;
 import com.stdkonjac.onlineledger.service.UserService;
 import com.stdkonjac.onlineledger.util.*;
@@ -11,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.net.PasswordAuthentication;
-import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 

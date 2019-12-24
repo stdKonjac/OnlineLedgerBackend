@@ -14,6 +14,7 @@ public class IncomeRecordService {
     private IncomeRecordDao incomeRecordDao;
 
     public List<IncomeRecord> selectIncomeRecord(
+            Integer id,
             Integer uid,
             Date date,
             String category,
@@ -22,7 +23,7 @@ public class IncomeRecordService {
             String remark,
             String ledgerBook) {
         return incomeRecordDao.selectIncomeRecord(
-                uid, date, category, type, income, remark, ledgerBook);
+                id, uid, date, category, type, income, remark, ledgerBook);
     }
 
     public List<IncomeRecord> selectAllIncomeRecord() {
@@ -30,6 +31,7 @@ public class IncomeRecordService {
     }
 
     public void insertIncomeRecord(
+            Integer id,
             Integer uid,
             Date date,
             String category,
@@ -38,10 +40,11 @@ public class IncomeRecordService {
             String remark,
             String ledgerBook) {
         incomeRecordDao.insertIncomeRecord(
-                uid, date, category, type, income, remark, ledgerBook);
+                id, uid, date, category, type, income, remark, ledgerBook);
     }
 
     public void deleteIncomeRecord(
+            Integer id,
             Integer uid,
             Date date,
             String category,
@@ -50,10 +53,11 @@ public class IncomeRecordService {
             String remark,
             String ledgerBook) {
         incomeRecordDao.deleteIncomeRecord(
-                uid, date, category, type, income, remark, ledgerBook);
+                id, uid, date, category, type, income, remark, ledgerBook);
     }
 
     public void updateIncomeRecord(
+            Integer id,
             Integer uid,
             Date date,
             String category,
@@ -62,7 +66,7 @@ public class IncomeRecordService {
             String remark,
             String ledgerBook) {
         incomeRecordDao.updateIncomeRecord(
-                uid, date, category, type, income, remark, ledgerBook);
+                id, uid, date, category, type, income, remark, ledgerBook);
     }
 
 }

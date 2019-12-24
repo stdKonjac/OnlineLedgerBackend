@@ -1,40 +1,45 @@
 package com.stdkonjac.onlineledger.dao;
 
-import com.stdkonjac.onlineledger.entity.WishRecord;
+import com.stdkonjac.onlineledger.entity.UnpaidRecord;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Date;
 import java.util.List;
 
 @Mapper
-public interface WishRecordDao {
+public interface UnpaidRecordDao {
 
-    List<WishRecord> selectWishRecord(
+    List<UnpaidRecord> selectUnpaidRecord(
             @Param("id") Integer id,
             @Param("uid") Integer uid,
-            @Param("wish") String wish,
+            @Param("value") Double value,
+            @Param("date") Date date,
             @Param("remark") String remark);
 
-    List<WishRecord> selectAllWishRecord();
+    List<UnpaidRecord> selectAllUnpaidRecord();
 
-    void insertWishRecord(
+    void insertUnpaidRecord(
             @Param("id") Integer id,
             @Param("uid") Integer uid,
-            @Param("wish") String wish,
-            @Param("remark") String remark);
-
-
-    void deleteWishRecord(
-            @Param("id") Integer id,
-            @Param("uid") Integer uid,
-            @Param("wish") String wish,
+            @Param("value") Double value,
+            @Param("date") Date date,
             @Param("remark") String remark);
 
 
-    void updateWishRecord(
+    void deleteUnpaidRecord(
             @Param("id") Integer id,
             @Param("uid") Integer uid,
-            @Param("wish") String wish,
+            @Param("value") Double value,
+            @Param("date") Date date,
+            @Param("remark") String remark);
+
+
+    void updateUnpaidRecord(
+            @Param("id") Integer id,
+            @Param("uid") Integer uid,
+            @Param("value") Double value,
+            @Param("date") Date date,
             @Param("remark") String remark);
 
 }

@@ -1,7 +1,7 @@
 package com.stdkonjac.onlineledger.controller;
 
-import com.stdkonjac.onlineledger.entity.WishRecord;
-import com.stdkonjac.onlineledger.service.WishRecordService;
+import com.stdkonjac.onlineledger.entity.UnpaidRecord;
+import com.stdkonjac.onlineledger.service.UnpaidRecordService;
 import com.stdkonjac.onlineledger.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,103 +10,112 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/wishRecord")
-public class WishRecordController {
+@RequestMapping("/unpaidRecord")
+public class UnpaidRecordController {
     @Autowired
-    private WishRecordService wishRecordService;
+    private UnpaidRecordService unpaidRecordService;
 
     @RequestMapping(value = "/query", method = {RequestMethod.GET})
-    public List<WishRecord> query(HttpServletRequest request) {
+    public List<UnpaidRecord> query(HttpServletRequest request) {
         Integer id = ParseUtil.str2Int(request.getParameter("id"));
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
-        String wish = request.getParameter("wish");
+        Double value = ParseUtil.str2Double(request.getParameter("value"));
+        Date date = ParseUtil.str2Date(request.getParameter("date"));
         String remark = request.getParameter("remark");
-        return wishRecordService.selectWishRecord(
-                id, uid, wish, remark);
+        return unpaidRecordService.selectUnpaidRecord(
+                id, uid, value, date, remark);
     }
 
     @RequestMapping(value = "/queryAll", method = {RequestMethod.GET})
-    public List<WishRecord> queryAll() {
-        return wishRecordService.selectAllWishRecord();
+    public List<UnpaidRecord> queryAll() {
+        return unpaidRecordService.selectAllUnpaidRecord();
     }
 
     @RequestMapping(value = "/insert", method = {RequestMethod.GET})
     public void insert(HttpServletRequest request) {
         Integer id = ParseUtil.str2Int(request.getParameter("id"));
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
-        String wish = request.getParameter("wish");
+        Double value = ParseUtil.str2Double(request.getParameter("value"));
+        Date date = ParseUtil.str2Date(request.getParameter("date"));
         String remark = request.getParameter("remark");
-        wishRecordService.insertWishRecord(
-                id, uid, wish, remark);
+        unpaidRecordService.insertUnpaidRecord(
+                id, uid, value, date, remark);
     }
 
     @RequestMapping(value = "/delete", method = {RequestMethod.GET})
     public void delete(HttpServletRequest request) {
         Integer id = ParseUtil.str2Int(request.getParameter("id"));
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
-        String wish = request.getParameter("wish");
+        Double value = ParseUtil.str2Double(request.getParameter("value"));
+        Date date = ParseUtil.str2Date(request.getParameter("date"));
         String remark = request.getParameter("remark");
-        wishRecordService.deleteWishRecord(
-                id, uid, wish, remark);
+        unpaidRecordService.deleteUnpaidRecord(
+                id, uid, value, date, remark);
     }
 
     @RequestMapping(value = "/update", method = {RequestMethod.GET})
     public void update(HttpServletRequest request) {
         Integer id = ParseUtil.str2Int(request.getParameter("id"));
         Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
-        String wish = request.getParameter("wish");
+        Double value = ParseUtil.str2Double(request.getParameter("value"));
+        Date date = ParseUtil.str2Date(request.getParameter("date"));
         String remark = request.getParameter("remark");
-        wishRecordService.updateWishRecord(
-                id, uid, wish, remark);
+        unpaidRecordService.updateUnpaidRecord(
+                id, uid, value, date, remark);
     }
 
     @RequestMapping(value = "/queryByJson", method = {RequestMethod.POST})
-    public List<WishRecord> queryByJson(@RequestBody Map params) {
+    public List<UnpaidRecord> queryByJson(@RequestBody Map params) {
         Integer id = ParseUtil.obj2Int(params.get("id"));
         Integer uid = ParseUtil.obj2Int(params.get("uid"));
-        String wish = ParseUtil.obj2String(params.get("wish"));
+        Double value = ParseUtil.obj2Double(params.get("value"));
+        Date date = ParseUtil.obj2Date(params.get("date"));
         String remark = ParseUtil.obj2String(params.get("remark"));
-        return wishRecordService.selectWishRecord(
-                id, uid, wish, remark);
+        return unpaidRecordService.selectUnpaidRecord(
+                id, uid, value, date, remark);
     }
 
     @RequestMapping(value = "/queryAllByJson", method = {RequestMethod.POST})
-    public List<WishRecord> queryAllByJson(@RequestBody Map params) {
-        return wishRecordService.selectAllWishRecord();
+    public List<UnpaidRecord> queryAllByJson(@RequestBody Map params) {
+        return unpaidRecordService.selectAllUnpaidRecord();
     }
 
     @RequestMapping(value = "/insertByJson", method = {RequestMethod.POST})
     public void insertByJson(@RequestBody Map params) {
         Integer id = ParseUtil.obj2Int(params.get("id"));
         Integer uid = ParseUtil.obj2Int(params.get("uid"));
-        String wish = ParseUtil.obj2String(params.get("wish"));
+        Double value = ParseUtil.obj2Double(params.get("value"));
+        Date date = ParseUtil.obj2Date(params.get("date"));
         String remark = ParseUtil.obj2String(params.get("remark"));
-        wishRecordService.insertWishRecord(
-                id, uid, wish, remark);
+        unpaidRecordService.insertUnpaidRecord(
+                id, uid, value, date, remark);
     }
 
     @RequestMapping(value = "/deleteByJson", method = {RequestMethod.POST})
     public void deleteByJson(@RequestBody Map params) {
         Integer id = ParseUtil.obj2Int(params.get("id"));
         Integer uid = ParseUtil.obj2Int(params.get("uid"));
-        String wish = ParseUtil.obj2String(params.get("wish"));
+        Double value = ParseUtil.obj2Double(params.get("value"));
+        Date date = ParseUtil.obj2Date(params.get("date"));
         String remark = ParseUtil.obj2String(params.get("remark"));
-        wishRecordService.deleteWishRecord(
-                id, uid, wish, remark);
+        unpaidRecordService.deleteUnpaidRecord(
+                id, uid, value, date, remark);
     }
 
     @RequestMapping(value = "/updateByJson", method = {RequestMethod.POST})
     public void updateByJson(@RequestBody Map params) {
         Integer id = ParseUtil.obj2Int(params.get("id"));
         Integer uid = ParseUtil.obj2Int(params.get("uid"));
-        String wish = ParseUtil.obj2String(params.get("wish"));
+        Double value = ParseUtil.obj2Double(params.get("value"));
+        Date date = ParseUtil.obj2Date(params.get("date"));
         String remark = ParseUtil.obj2String(params.get("remark"));
-        wishRecordService.updateWishRecord(
-                id, uid, wish, remark);
+        unpaidRecordService.updateUnpaidRecord(
+                id, uid, value, date, remark);
     }
 
 }

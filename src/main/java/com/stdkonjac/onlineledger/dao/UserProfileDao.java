@@ -10,6 +10,7 @@ import java.util.List;
 public interface UserProfileDao {
 
     List<UserProfile> selectUserProfile(
+            @Param("id") Integer id,
             @Param("uid") Integer uid,
             @Param("nickname") String nickname,
             @Param("phone") String phone,
@@ -18,6 +19,7 @@ public interface UserProfileDao {
     List<UserProfile> selectAllUserProfile();
 
     void insertUserProfile(
+            @Param("id") Integer id,
             @Param("uid") Integer uid,
             @Param("nickname") String nickname,
             @Param("phone") String phone,
@@ -25,6 +27,7 @@ public interface UserProfileDao {
 
 
     void deleteUserProfile(
+            @Param("id") Integer id,
             @Param("uid") Integer uid,
             @Param("nickname") String nickname,
             @Param("phone") String phone,
@@ -32,6 +35,7 @@ public interface UserProfileDao {
 
 
     void updateUserProfile(
+            @Param("id") Integer id,
             @Param("uid") Integer uid,
             @Param("nickname") String nickname,
             @Param("phone") String phone,

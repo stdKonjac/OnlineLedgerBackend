@@ -7,6 +7,9 @@
             resultType="com.stdkonjac.onlineledger.entity.IncomeRecord">
         select * from income_record
         <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
             <if test="uid != null">
                 and uid = #{uid}
             </if>
@@ -40,6 +43,9 @@
     <insert id="insertIncomeRecord">
         insert into income_record
         <set>
+            <if test="id != null">
+                id = #{id},
+            </if>
             <if test="uid != null">
                 uid = #{uid},
             </if>
@@ -67,6 +73,9 @@
     <delete id="deleteIncomeRecord">
         delete from income_record
         <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
             <if test="uid != null">
                 and uid = #{uid}
             </if>
@@ -94,6 +103,9 @@
     <update id="updateIncomeRecord">
         update income_record
         <set>
+            <if test="uid != null">
+                uid = #{uid},
+            </if>
             <if test="date != null">
                 date = #{date},
             </if>
@@ -114,8 +126,8 @@
             </if>
         </set>
         <where>
-            <if test="uid != null">
-                and uid = #{uid}
+            <if test="id != null">
+                and id = #{id}
             </if>
         </where>
     </update>

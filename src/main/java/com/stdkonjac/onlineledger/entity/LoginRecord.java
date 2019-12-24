@@ -1,7 +1,6 @@
 package com.stdkonjac.onlineledger.entity;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
 public class LoginRecord {
     private Integer id;

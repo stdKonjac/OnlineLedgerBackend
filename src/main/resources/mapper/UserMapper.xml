@@ -67,7 +67,7 @@
         </set>
         <where>
             <if test="id != null">
-                and id = #{id},
+                and id = #{id}
             </if>
         </where>
     </update>

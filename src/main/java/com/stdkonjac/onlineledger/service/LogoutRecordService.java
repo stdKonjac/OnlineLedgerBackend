@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -15,11 +14,13 @@ public class LogoutRecordService {
     private LogoutRecordDao logoutRecordDao;
 
     public List<LogoutRecord> selectLogoutRecord(
+            Integer id,
             String ip,
             Integer uid,
             String username,
             Timestamp logoutTime) {
-        return logoutRecordDao.selectLogoutRecord(ip, uid, username, logoutTime);
+        return logoutRecordDao.selectLogoutRecord(
+                id, ip, uid, username, logoutTime);
     }
 
     public List<LogoutRecord> selectAllLogoutRecord() {
@@ -27,27 +28,33 @@ public class LogoutRecordService {
     }
 
     public void insertLogoutRecord(
+            Integer id,
             String ip,
             Integer uid,
             String username,
             Timestamp logoutTime) {
-        logoutRecordDao.insertLogoutRecord(ip, uid, username, logoutTime);
+        logoutRecordDao.insertLogoutRecord(
+                id, ip, uid, username, logoutTime);
     }
 
     public void deleteLogoutRecord(
+            Integer id,
             String ip,
             Integer uid,
             String username,
             Timestamp logoutTime) {
-        logoutRecordDao.deleteLogoutRecord(ip, uid, username, logoutTime);
+        logoutRecordDao.deleteLogoutRecord(
+                id, ip, uid, username, logoutTime);
     }
 
     public void updateLogoutRecord(
+            Integer id,
             String ip,
             Integer uid,
             String username,
             Timestamp logoutTime) {
-        logoutRecordDao.updateLogoutRecord(ip, uid, username, logoutTime);
+        logoutRecordDao.updateLogoutRecord(
+                id, ip, uid, username, logoutTime);
     }
 
 }

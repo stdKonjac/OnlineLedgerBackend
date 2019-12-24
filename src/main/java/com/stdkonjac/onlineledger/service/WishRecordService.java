@@ -13,10 +13,12 @@ public class WishRecordService {
     private WishRecordDao wishRecordDao;
 
     public List<WishRecord> selectWishRecord(
+            Integer id,
             Integer uid,
             String wish,
             String remark) {
-        return wishRecordDao.selectWishRecord(uid, wish, remark);
+        return wishRecordDao.selectWishRecord(
+                id, uid, wish, remark);
     }
 
     public List<WishRecord> selectAllWishRecord() {
@@ -24,24 +26,30 @@ public class WishRecordService {
     }
 
     public void insertWishRecord(
+            Integer id,
             Integer uid,
             String wish,
             String remark) {
-        wishRecordDao.insertWishRecord(uid, wish, remark);
+        wishRecordDao.insertWishRecord(
+                id, uid, wish, remark);
     }
 
     public void deleteWishRecord(
+            Integer id,
             Integer uid,
             String wish,
             String remark) {
-        wishRecordDao.deleteWishRecord(uid, wish, remark);
+        wishRecordDao.deleteWishRecord(
+                id, uid, wish, remark);
     }
 
     public void updateWishRecord(
+            Integer id,
             Integer uid,
             String wish,
             String remark) {
-        wishRecordDao.updateWishRecord(uid, wish, remark);
+        wishRecordDao.updateWishRecord(
+                id, uid, wish, remark);
     }
 
 }

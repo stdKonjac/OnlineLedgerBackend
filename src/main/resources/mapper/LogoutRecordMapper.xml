@@ -7,6 +7,9 @@
             resultType="com.stdkonjac.onlineledger.entity.LogoutRecord">
         select * from logout_record
         <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
             <if test="ip != null">
                 and ip = #{ip}
             </if>
@@ -31,6 +34,9 @@
     <insert id="insertLogoutRecord">
         insert into logout_record
         <set>
+            <if test="id != null">
+                id = #{id},
+            </if>
             <if test="ip != null">
                 ip = #{ip},
             </if>
@@ -49,6 +55,9 @@
     <delete id="deleteLogoutRecord">
         delete from logout_record
         <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
             <if test="ip != null">
                 and ip = #{ip}
             </if>
@@ -67,6 +76,9 @@
     <update id="updateLogoutRecord">
         update logout_record
         <set>
+            <if test="ip != null">
+                ip = #{ip},
+            </if>
             <if test="uid != null">
                 uid = #{uid},
             </if>
@@ -78,8 +90,8 @@
             </if>
         </set>
         <where>
-            <if test="ip != null">
-                and ip = #{ip}
+            <if test="id != null">
+                and id = #{id}
             </if>
         </where>
     </update>

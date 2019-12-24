@@ -11,6 +11,7 @@ import java.util.List;
 public interface ExpenseRecordDao {
 
     List<ExpenseRecord> selectExpenseRecord(
+            @Param("id") Integer id,
             @Param("uid") Integer uid,
             @Param("date") Date date,
             @Param("category") String category,
@@ -23,6 +24,7 @@ public interface ExpenseRecordDao {
     List<ExpenseRecord> selectAllExpenseRecord();
 
     void insertExpenseRecord(
+            @Param("id") Integer id,
             @Param("uid") Integer uid,
             @Param("date") Date date,
             @Param("category") String category,
@@ -34,6 +36,7 @@ public interface ExpenseRecordDao {
 
 
     void deleteExpenseRecord(
+            @Param("id") Integer id,
             @Param("uid") Integer uid,
             @Param("date") Date date,
             @Param("category") String category,
@@ -45,6 +48,7 @@ public interface ExpenseRecordDao {
 
 
     void updateExpenseRecord(
+            @Param("id") Integer id,
             @Param("uid") Integer uid,
             @Param("date") Date date,
             @Param("category") String category,
