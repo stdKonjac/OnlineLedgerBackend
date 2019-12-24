@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.stdkonjac.onlineledger.dao.PaidRecordDao">
+    <select id="selectPaidRecord"
+            resultType="com.stdkonjac.onlineledger.entity.PaidRecord">
+        select * from paid_record
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+            <if test="value != null">
+                and value = #{value}
+            </if>
+            <if test="date != null">
+                and date = #{date}
+            </if>
+            <if test="remark != null">
+                and remark = #{remark}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectAllPaidRecord"
+            resultType="com.stdkonjac.onlineledger.entity.PaidRecord">
+        select *
+        from paid_record
+    </select>
+
+    <insert id="insertPaidRecord">
+        insert into paid_record
+        <set>
+            <if test="id != null">
+                id = #{id},
+            </if>
+            <if test="uid != null">
+                uid = #{uid},
+            </if>
+            <if test="value != null">
+                value = #{value},
+            </if>
+            <if test="date != null">
+                date = #{date},
+            </if>
+            <if test="remark != null">
+                remark = #{remark},
+            </if>
+        </set>
+    </insert>
+
+    <delete id="deletePaidRecord">
+        delete from paid_record
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+            <if test="value != null">
+                and value = #{value}
+            </if>
+            <if test="date != null">
+                and date = #{date}
+            </if>
+            <if test="remark != null">
+                and remark = #{remark}
+            </if>
+        </where>
+    </delete>
+
+    <update id="updatePaidRecord">
+        update paid_record
+        <set>
+            <if test="uid != null">
+                uid = #{uid},
+            </if>
+            <if test="value != null">
+                value = #{value},
+            </if>
+            <if test="date != null">
+                date = #{date},
+            </if>
+            <if test="remark != null">
+                remark = #{remark},
+            </if>
+        </set>
+        <where>
+            <if test="id != null">
+                and id = #{uid}
+            </if>
+        </where>
+    </update>
+</mapper>
