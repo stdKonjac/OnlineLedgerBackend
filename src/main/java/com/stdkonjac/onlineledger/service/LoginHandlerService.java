@@ -34,7 +34,7 @@ public class LoginHandlerService {
 
     public void recordLoginAction(String ip, User user) {
         Timestamp loginTime = ParseUtil.date2Timestamp(new Date());
-        Integer id = user.getId();
+        Integer id = null;
         Integer uid = user.getId();
         String username = user.getUsername();
         loginRecordDao.insertLoginRecord(

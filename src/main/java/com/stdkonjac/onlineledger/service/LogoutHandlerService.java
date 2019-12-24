@@ -32,7 +32,7 @@ public class LogoutHandlerService {
 
     public void recordLogoutAction(String ip, User user) {
         Timestamp logoutTime = ParseUtil.date2Timestamp(new Date());
-        Integer id = user.getId();
+        Integer id = null;
         Integer uid = user.getId();
         String username = user.getUsername();
         logoutRecordDao.insertLogoutRecord(
