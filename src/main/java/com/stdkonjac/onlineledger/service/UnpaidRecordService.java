@@ -5,6 +5,7 @@ import com.stdkonjac.onlineledger.entity.UnpaidRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.PushBuilder;
 import java.util.Date;
 import java.util.List;
 
@@ -18,9 +19,10 @@ public class UnpaidRecordService {
             Integer uid,
             Double value,
             Date date,
-            String remark) {
+            String remark,
+            Integer expenseRecordId) {
         return unpaidRecordDao.selectUnpaidRecord(
-                id, uid, value, date, remark);
+                id, uid, value, date, remark, expenseRecordId);
     }
 
     public List<UnpaidRecord> selectAllUnpaidRecord() {
@@ -32,9 +34,10 @@ public class UnpaidRecordService {
             Integer uid,
             Double value,
             Date date,
-            String remark) {
+            String remark,
+            Integer expenseRecordId) {
         unpaidRecordDao.insertUnpaidRecord(
-                id, uid, value, date, remark);
+                id, uid, value, date, remark, expenseRecordId);
     }
 
     public void deleteUnpaidRecord(
@@ -42,9 +45,10 @@ public class UnpaidRecordService {
             Integer uid,
             Double value,
             Date date,
-            String remark) {
+            String remark,
+            Integer expenseRecordId) {
         unpaidRecordDao.deleteUnpaidRecord(
-                id, uid, value, date, remark);
+                id, uid, value, date, remark, expenseRecordId);
     }
 
     public void updateUnpaidRecord(
@@ -52,9 +56,16 @@ public class UnpaidRecordService {
             Integer uid,
             Double value,
             Date date,
-            String remark) {
+            String remark,
+            Integer expenseRecordId) {
         unpaidRecordDao.updateUnpaidRecord(
-                id, uid, value, date, remark);
+                id, uid, value, date, remark, expenseRecordId);
     }
 
+    public void deleteUnpaidRecordByExpenseRecordId(
+            Integer expenseRecordId) {
+        if (expenseRecordId != null) {
+            unpaidRecordDao.deleteUnpaidRecordByExpenseRecordId(expenseRecordId);
+        }
+    }
 }

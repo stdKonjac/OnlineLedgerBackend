@@ -22,6 +22,9 @@
             <if test="remark != null">
                 and remark = #{remark}
             </if>
+            <if test="expense_record_id != null">
+                and expense_record_id = #{expense_record_id}
+            </if>
         </where>
     </select>
 
@@ -49,6 +52,9 @@
             <if test="remark != null">
                 remark = #{remark},
             </if>
+            <if test="expense_record_id != null">
+                expense_record_id = #{expense_record_id},
+            </if>
         </set>
     </insert>
 
@@ -70,6 +76,9 @@
             <if test="remark != null">
                 and remark = #{remark}
             </if>
+            <if test="expense_record_id != null">
+                and expense_record_id = #{expense_record_id}
+            </if>
         </where>
     </delete>
 
@@ -88,11 +97,23 @@
             <if test="remark != null">
                 remark = #{remark},
             </if>
+            <if test="expense_record_id != null">
+                expense_record_id = #{expense_record_id},
+            </if>
         </set>
         <where>
             <if test="id != null">
-                and id = #{uid}
+                and id = #{id}
             </if>
         </where>
     </update>
+
+    <delete id="deleteUnpaidRecordByExpenseRecordId">
+        delete from expense_record
+        <where>
+            <if test="expense_record_id != null">
+                and expense_record_id = #{expense_record_id}
+            </if>
+        </where>
+    </delete>
 </mapper>

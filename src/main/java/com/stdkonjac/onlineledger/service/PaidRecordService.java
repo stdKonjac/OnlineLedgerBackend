@@ -18,9 +18,10 @@ public class PaidRecordService {
             Integer uid,
             Double value,
             Date date,
-            String remark) {
+            String remark,
+            Integer expenseRecordId) {
         return paidRecordDao.selectPaidRecord(
-                id, uid, value, date, remark);
+                id, uid, value, date, remark, expenseRecordId);
     }
 
     public List<PaidRecord> selectAllPaidRecord() {
@@ -32,9 +33,10 @@ public class PaidRecordService {
             Integer uid,
             Double value,
             Date date,
-            String remark) {
+            String remark,
+            Integer expenseRecordId) {
         paidRecordDao.insertPaidRecord(
-                id, uid, value, date, remark);
+                id, uid, value, date, remark, expenseRecordId);
     }
 
     public void deletePaidRecord(
@@ -42,9 +44,10 @@ public class PaidRecordService {
             Integer uid,
             Double value,
             Date date,
-            String remark) {
+            String remark,
+            Integer expenseRecordId) {
         paidRecordDao.deletePaidRecord(
-                id, uid, value, date, remark);
+                id, uid, value, date, remark, expenseRecordId);
     }
 
     public void updatePaidRecord(
@@ -52,9 +55,17 @@ public class PaidRecordService {
             Integer uid,
             Double value,
             Date date,
-            String remark) {
+            String remark,
+            Integer expenseRecordId) {
         paidRecordDao.updatePaidRecord(
-                id, uid, value, date, remark);
+                id, uid, value, date, remark, expenseRecordId);
+    }
+
+    public void deletePaidRecordByExpenseRecordId(
+            Integer expenseRecordId) {
+        if (expenseRecordId != null) {
+            paidRecordDao.deletePaidRecordByExpenseRecordId(expenseRecordId);
+        }
     }
 
 }

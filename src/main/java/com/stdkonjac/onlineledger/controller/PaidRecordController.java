@@ -27,8 +27,9 @@ public class PaidRecordController {
         Double value = ParseUtil.str2Double(request.getParameter("value"));
         Date date = ParseUtil.str2Date(request.getParameter("date"));
         String remark = request.getParameter("remark");
+        Integer expenseRecordId = ParseUtil.str2Int(request.getParameter("expenseRecordId"));
         return paidRecordService.selectPaidRecord(
-                id, uid, value, date, remark);
+                id, uid, value, date, remark, expenseRecordId);
     }
 
     @RequestMapping(value = "/queryAll", method = {RequestMethod.GET})
@@ -43,8 +44,9 @@ public class PaidRecordController {
         Double value = ParseUtil.str2Double(request.getParameter("value"));
         Date date = ParseUtil.str2Date(request.getParameter("date"));
         String remark = request.getParameter("remark");
+        Integer expenseRecordId = ParseUtil.str2Int(request.getParameter("expenseRecordId"));
         paidRecordService.insertPaidRecord(
-                id, uid, value, date, remark);
+                id, uid, value, date, remark, expenseRecordId);
     }
 
     @RequestMapping(value = "/delete", method = {RequestMethod.GET})
@@ -54,8 +56,9 @@ public class PaidRecordController {
         Double value = ParseUtil.str2Double(request.getParameter("value"));
         Date date = ParseUtil.str2Date(request.getParameter("date"));
         String remark = request.getParameter("remark");
+        Integer expenseRecordId = ParseUtil.str2Int(request.getParameter("expenseRecordId"));
         paidRecordService.deletePaidRecord(
-                id, uid, value, date, remark);
+                id, uid, value, date, remark, expenseRecordId);
     }
 
     @RequestMapping(value = "/update", method = {RequestMethod.GET})
@@ -65,8 +68,9 @@ public class PaidRecordController {
         Double value = ParseUtil.str2Double(request.getParameter("value"));
         Date date = ParseUtil.str2Date(request.getParameter("date"));
         String remark = request.getParameter("remark");
+        Integer expenseRecordId = ParseUtil.str2Int(request.getParameter("expenseRecordId"));
         paidRecordService.updatePaidRecord(
-                id, uid, value, date, remark);
+                id, uid, value, date, remark, expenseRecordId);
     }
 
     @RequestMapping(value = "/queryByJson", method = {RequestMethod.POST})
@@ -76,8 +80,9 @@ public class PaidRecordController {
         Double value = ParseUtil.obj2Double(params.get("value"));
         Date date = ParseUtil.obj2Date(params.get("date"));
         String remark = ParseUtil.obj2String(params.get("remark"));
+        Integer expenseRecordId = ParseUtil.obj2Int(params.get("expenseRecordId"));
         return paidRecordService.selectPaidRecord(
-                id, uid, value, date, remark);
+                id, uid, value, date, remark, expenseRecordId);
     }
 
     @RequestMapping(value = "/queryAllByJson", method = {RequestMethod.POST})
@@ -92,8 +97,9 @@ public class PaidRecordController {
         Double value = ParseUtil.obj2Double(params.get("value"));
         Date date = ParseUtil.obj2Date(params.get("date"));
         String remark = ParseUtil.obj2String(params.get("remark"));
+        Integer expenseRecordId = ParseUtil.obj2Int(params.get("expenseRecordId"));
         paidRecordService.insertPaidRecord(
-                id, uid, value, date, remark);
+                id, uid, value, date, remark, expenseRecordId);
     }
 
     @RequestMapping(value = "/deleteByJson", method = {RequestMethod.POST})
@@ -103,8 +109,9 @@ public class PaidRecordController {
         Double value = ParseUtil.obj2Double(params.get("value"));
         Date date = ParseUtil.obj2Date(params.get("date"));
         String remark = ParseUtil.obj2String(params.get("remark"));
+        Integer expenseRecordId = ParseUtil.obj2Int(params.get("expenseRecordId"));
         paidRecordService.deletePaidRecord(
-                id, uid, value, date, remark);
+                id, uid, value, date, remark, expenseRecordId);
     }
 
     @RequestMapping(value = "/updateByJson", method = {RequestMethod.POST})
@@ -114,8 +121,9 @@ public class PaidRecordController {
         Double value = ParseUtil.obj2Double(params.get("value"));
         Date date = ParseUtil.obj2Date(params.get("date"));
         String remark = ParseUtil.obj2String(params.get("remark"));
+        Integer expenseRecordId = ParseUtil.obj2Int(params.get("expenseRecordId"));
         paidRecordService.updatePaidRecord(
-                id, uid, value, date, remark);
+                id, uid, value, date, remark, expenseRecordId);
     }
 
 }

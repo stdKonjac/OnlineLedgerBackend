@@ -8,6 +8,7 @@ public class PaidRecord {
     private Double value;
     private Date date;
     private String remark;
+    private Integer expenseRecordId;
 
     public Integer getId() {
         return id;
@@ -49,6 +50,14 @@ public class PaidRecord {
         this.remark = remark;
     }
 
+    public Integer getExpenseRecordId() {
+        return expenseRecordId;
+    }
+
+    public void setExpenseRecordId(Integer expenseRecordId) {
+        this.expenseRecordId = expenseRecordId;
+    }
+
     @Override
     public String toString() {
         return "PaidRecord{" +
@@ -57,6 +66,7 @@ public class PaidRecord {
                 ", value=" + value +
                 ", date=" + date +
                 ", remark='" + remark + '\'' +
+                ", expenseRecordId=" + expenseRecordId +
                 '}';
     }
 }

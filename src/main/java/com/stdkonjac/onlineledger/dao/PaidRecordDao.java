@@ -1,7 +1,6 @@
 package com.stdkonjac.onlineledger.dao;
 
 import com.stdkonjac.onlineledger.entity.PaidRecord;
-import com.stdkonjac.onlineledger.entity.UnpaidRecord;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -16,7 +15,8 @@ public interface PaidRecordDao {
             @Param("uid") Integer uid,
             @Param("value") Double value,
             @Param("date") Date date,
-            @Param("remark") String remark);
+            @Param("remark") String remark,
+            @Param("expense_record_id") Integer expenseRecordId);
 
     List<PaidRecord> selectAllPaidRecord();
 
@@ -25,7 +25,8 @@ public interface PaidRecordDao {
             @Param("uid") Integer uid,
             @Param("value") Double value,
             @Param("date") Date date,
-            @Param("remark") String remark);
+            @Param("remark") String remark,
+            @Param("expense_record_id") Integer expenseRecordId);
 
 
     void deletePaidRecord(
@@ -33,7 +34,8 @@ public interface PaidRecordDao {
             @Param("uid") Integer uid,
             @Param("value") Double value,
             @Param("date") Date date,
-            @Param("remark") String remark);
+            @Param("remark") String remark,
+            @Param("expense_record_id") Integer expenseRecordId);
 
 
     void updatePaidRecord(
@@ -41,6 +43,10 @@ public interface PaidRecordDao {
             @Param("uid") Integer uid,
             @Param("value") Double value,
             @Param("date") Date date,
-            @Param("remark") String remark);
+            @Param("remark") String remark,
+            @Param("expense_record_id") Integer expenseRecordId);
+
+    void deletePaidRecordByExpenseRecordId(
+            @Param("expense_record_id") Integer expenseRecordId);
 
 }

@@ -15,7 +15,8 @@ public interface UnpaidRecordDao {
             @Param("uid") Integer uid,
             @Param("value") Double value,
             @Param("date") Date date,
-            @Param("remark") String remark);
+            @Param("remark") String remark,
+            @Param("expense_record_id") Integer expenseRecordId);
 
     List<UnpaidRecord> selectAllUnpaidRecord();
 
@@ -24,7 +25,8 @@ public interface UnpaidRecordDao {
             @Param("uid") Integer uid,
             @Param("value") Double value,
             @Param("date") Date date,
-            @Param("remark") String remark);
+            @Param("remark") String remark,
+            @Param("expense_record_id") Integer expenseRecordId);
 
 
     void deleteUnpaidRecord(
@@ -32,7 +34,8 @@ public interface UnpaidRecordDao {
             @Param("uid") Integer uid,
             @Param("value") Double value,
             @Param("date") Date date,
-            @Param("remark") String remark);
+            @Param("remark") String remark,
+            @Param("expense_record_id") Integer expenseRecordId);
 
 
     void updateUnpaidRecord(
@@ -40,6 +43,10 @@ public interface UnpaidRecordDao {
             @Param("uid") Integer uid,
             @Param("value") Double value,
             @Param("date") Date date,
-            @Param("remark") String remark);
+            @Param("remark") String remark,
+            @Param("expense_record_id") Integer expenseRecordId);
+
+    void deleteUnpaidRecordByExpenseRecordId(
+            @Param("expense_record_id") Integer expenseRecordId);
 
 }
