@@ -1,6 +1,6 @@
 package com.stdkonjac.onlineledger.entity;
 
-public class Category {
+public class LedgerBook {
     private Integer id;
     private Integer uid;
     private String name;
@@ -49,7 +49,7 @@ public class Category {
 
     @Override
     public String toString() {
-        return "Category{" +
+        return "LedgerBook{" +
                 "id=" + id +
                 ", uid=" + uid +
                 ", name='" + name + '\'' +

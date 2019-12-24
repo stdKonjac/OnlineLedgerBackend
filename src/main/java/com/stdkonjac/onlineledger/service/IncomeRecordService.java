@@ -18,8 +18,11 @@ public class IncomeRecordService {
             Date date,
             String category,
             String type,
-            Double income) {
-        return incomeRecordDao.selectIncomeRecord(uid, date, category, type, income);
+            Double income,
+            String remark,
+            String ledgerBook) {
+        return incomeRecordDao.selectIncomeRecord(
+                uid, date, category, type, income, remark, ledgerBook);
     }
 
     public List<IncomeRecord> selectAllIncomeRecord() {
@@ -31,8 +34,11 @@ public class IncomeRecordService {
             Date date,
             String category,
             String type,
-            Double income) {
-        incomeRecordDao.insertIncomeRecord(uid, date, category, type, income);
+            Double income,
+            String remark,
+            String ledgerBook) {
+        incomeRecordDao.insertIncomeRecord(
+                uid, date, category, type, income, remark, ledgerBook);
     }
 
     public void deleteIncomeRecord(
@@ -40,8 +46,11 @@ public class IncomeRecordService {
             Date date,
             String category,
             String type,
-            Double income) {
-        incomeRecordDao.deleteIncomeRecord(uid, date, category, type, income);
+            Double income,
+            String remark,
+            String ledgerBook) {
+        incomeRecordDao.deleteIncomeRecord(
+                uid, date, category, type, income, remark, ledgerBook);
     }
 
     public void updateIncomeRecord(
@@ -49,8 +58,11 @@ public class IncomeRecordService {
             Date date,
             String category,
             String type,
-            Double income) {
-        incomeRecordDao.updateIncomeRecord(uid, date, category, type, income);
+            Double income,
+            String remark,
+            String ledgerBook) {
+        incomeRecordDao.updateIncomeRecord(
+                uid, date, category, type, income, remark, ledgerBook);
     }
 
 }

@@ -19,9 +19,11 @@ public class ExpenseRecordService {
             String category,
             String type,
             Double expense,
-            Integer prepay) {
+            Integer prepay,
+            String remark,
+            String ledgerBook) {
         return expenseRecordDao.selectExpenseRecord(
-                uid, date, category, type, expense, prepay);
+                uid, date, category, type, expense, prepay, remark, ledgerBook);
     }
 
     public List<ExpenseRecord> selectAllExpenseRecord() {
@@ -34,9 +36,11 @@ public class ExpenseRecordService {
             String category,
             String type,
             Double expense,
-            Integer prepay) {
+            Integer prepay,
+            String remark,
+            String ledgerBook) {
         expenseRecordDao.insertExpenseRecord(
-                uid, date, category, type, expense, prepay);
+                uid, date, category, type, expense, prepay, remark, ledgerBook);
     }
 
     public void deleteExpenseRecord(
@@ -45,9 +49,11 @@ public class ExpenseRecordService {
             String category,
             String type,
             Double expense,
-            Integer prepay) {
+            Integer prepay,
+            String remark,
+            String ledgerBook) {
         expenseRecordDao.deleteExpenseRecord(
-                uid, date, category, type, expense, prepay);
+                uid, date, category, type, expense, prepay, remark, ledgerBook);
     }
 
     public void updateExpenseRecord(
@@ -56,9 +62,11 @@ public class ExpenseRecordService {
             String category,
             String type,
             Double expense,
-            Integer prepay) {
+            Integer prepay,
+            String remark,
+            String ledgerBook) {
         expenseRecordDao.updateExpenseRecord(
-                uid, date, category, type, expense, prepay);
+                uid, date, category, type, expense, prepay, remark, ledgerBook);
     }
 
 }

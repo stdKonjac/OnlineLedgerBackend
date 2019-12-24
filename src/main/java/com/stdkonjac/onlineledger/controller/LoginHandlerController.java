@@ -24,6 +24,7 @@ public class LoginHandlerController {
         if (user != null) {
             Integer uid = user.getId();
             CookieUtil.setCookie(response, "uid", String.valueOf(uid));
+            CookieUtil.setCookie(response, "username", username);
             String ip = IpUtil.getIpAddress(request);
             loginHandlerService.recordLoginAction(ip, user);
             return uid;

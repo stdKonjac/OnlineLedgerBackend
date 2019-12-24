@@ -15,7 +15,9 @@ public interface IncomeRecordDao {
             @Param("date") Date date,
             @Param("category") String category,
             @Param("type") String type,
-            @Param("income") Double income);
+            @Param("income") Double income,
+            @Param("remark") String remark,
+            @Param("ledger_book") String ledgerBook);
 
     List<IncomeRecord> selectAllIncomeRecord();
 
@@ -24,7 +26,9 @@ public interface IncomeRecordDao {
             @Param("date") Date date,
             @Param("category") String category,
             @Param("type") String type,
-            @Param("income") Double income);
+            @Param("income") Double income,
+            @Param("remark") String remark,
+            @Param("ledger_book") String ledgerBook);
 
 
     void deleteIncomeRecord(
@@ -32,7 +36,9 @@ public interface IncomeRecordDao {
             @Param("date") Date date,
             @Param("category") String category,
             @Param("type") String type,
-            @Param("income") Double income);
+            @Param("income") Double income,
+            @Param("remark") String remark,
+            @Param("ledger_book") String ledgerBook);
 
 
     void updateIncomeRecord(
@@ -40,6 +46,8 @@ public interface IncomeRecordDao {
             @Param("date") Date date,
             @Param("category") String category,
             @Param("type") String type,
-            @Param("income") Double income);
+            @Param("income") Double income,
+            @Param("remark") String remark,
+            @Param("ledger_book") String ledgerBook);
 
 }

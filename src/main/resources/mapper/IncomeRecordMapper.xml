@@ -22,13 +22,19 @@
             <if test="income != null">
                 and income = #{income}
             </if>
+            <if test="remark != null">
+                and remark = #{remark}
+            </if>
+            <if test="ledger_book != null">
+                and ledger_book = #{ledger_book}
+            </if>
         </where>
     </select>
 
     <select id="selectAllIncomeRecord"
             resultType="com.stdkonjac.onlineledger.entity.IncomeRecord">
         select *
-        from Income_record
+        from income_record
     </select>
 
     <insert id="insertIncomeRecord">
@@ -48,6 +54,12 @@
             </if>
             <if test="income != null">
                 income = #{income},
+            </if>
+            <if test="remark != null">
+                remark = #{remark},
+            </if>
+            <if test="ledger_book != null">
+                ledger_book = #{ledger_book},
             </if>
         </set>
     </insert>
@@ -70,6 +82,12 @@
             <if test="income != null">
                 and income = #{income}
             </if>
+            <if test="remark != null">
+                and remark = #{remark}
+            </if>
+            <if test="ledger_book != null">
+                and ledger_book = #{ledger_book}
+            </if>
         </where>
     </delete>
 
@@ -87,6 +105,12 @@
             </if>
             <if test="income != null">
                 income = #{income},
+            </if>
+            <if test="remark != null">
+                remark = #{remark},
+            </if>
+            <if test="ledger_book != null">
+                ledger_book = #{ledger_book},
             </if>
         </set>
         <where>

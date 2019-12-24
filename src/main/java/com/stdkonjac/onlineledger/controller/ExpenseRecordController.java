@@ -25,8 +25,10 @@ public class ExpenseRecordController {
         String type = request.getParameter("type");
         Double expense = ParseUtil.str2Double(request.getParameter("expense"));
         Integer prepay = ParseUtil.str2Int(request.getParameter("prepay"));
+        String remark = request.getParameter("remark");
+        String ledgerBook = request.getParameter("ledgerBook");
         return expenseRecordService.selectExpenseRecord(
-                uid, date, category, type, expense, prepay);
+                uid, date, category, type, expense, prepay, remark, ledgerBook);
     }
 
     @RequestMapping("/queryAll")
@@ -42,8 +44,10 @@ public class ExpenseRecordController {
         String type = request.getParameter("type");
         Double expense = ParseUtil.str2Double(request.getParameter("expense"));
         Integer prepay = ParseUtil.str2Int(request.getParameter("prepay"));
+        String remark = request.getParameter("remark");
+        String ledgerBook = request.getParameter("ledgerBook");
         expenseRecordService.insertExpenseRecord(
-                uid, date, category, type, expense, prepay);
+                uid, date, category, type, expense, prepay, remark, ledgerBook);
     }
 
     @RequestMapping("/delete")
@@ -54,8 +58,10 @@ public class ExpenseRecordController {
         String type = request.getParameter("type");
         Double expense = ParseUtil.str2Double(request.getParameter("expense"));
         Integer prepay = ParseUtil.str2Int(request.getParameter("prepay"));
+        String remark = request.getParameter("remark");
+        String ledgerBook = request.getParameter("ledgerBook");
         expenseRecordService.deleteExpenseRecord(
-                uid, date, category, type, expense, prepay);
+                uid, date, category, type, expense, prepay, remark, ledgerBook);
     }
 
     @RequestMapping("/update")
@@ -66,8 +72,10 @@ public class ExpenseRecordController {
         String type = request.getParameter("type");
         Double expense = ParseUtil.str2Double(request.getParameter("expense"));
         Integer prepay = ParseUtil.str2Int(request.getParameter("prepay"));
+        String remark = request.getParameter("remark");
+        String ledgerBook = request.getParameter("ledgerBook");
         expenseRecordService.updateExpenseRecord(
-                uid, date, category, type, expense, prepay);
+                uid, date, category, type, expense, prepay, remark, ledgerBook);
     }
 
 }

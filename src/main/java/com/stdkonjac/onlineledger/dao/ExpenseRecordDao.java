@@ -16,7 +16,9 @@ public interface ExpenseRecordDao {
             @Param("category") String category,
             @Param("type") String type,
             @Param("expense") Double expense,
-            @Param("prepay") Integer prepay);
+            @Param("prepay") Integer prepay,
+            @Param("remark") String remark,
+            @Param("ledger_book") String ledgerBook);
 
     List<ExpenseRecord> selectAllExpenseRecord();
 
@@ -26,7 +28,9 @@ public interface ExpenseRecordDao {
             @Param("category") String category,
             @Param("type") String type,
             @Param("expense") Double expense,
-            @Param("prepay") Integer prepay);
+            @Param("prepay") Integer prepay,
+            @Param("remark") String remark,
+            @Param("ledger_book") String ledgerBook);
 
 
     void deleteExpenseRecord(
@@ -35,7 +39,9 @@ public interface ExpenseRecordDao {
             @Param("category") String category,
             @Param("type") String type,
             @Param("expense") Double expense,
-            @Param("prepay") Integer prepay);
+            @Param("prepay") Integer prepay,
+            @Param("remark") String remark,
+            @Param("ledger_book") String ledgerBook);
 
 
     void updateExpenseRecord(
@@ -44,6 +50,8 @@ public interface ExpenseRecordDao {
             @Param("category") String category,
             @Param("type") String type,
             @Param("expense") Double expense,
-            @Param("prepay") Integer prepay);
+            @Param("prepay") Integer prepay,
+            @Param("remark") String remark,
+            @Param("ledger_book") String ledgerBook);
 
 }

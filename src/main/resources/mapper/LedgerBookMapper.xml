@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.stdkonjac.onlineledger.dao.CategoryDao">
+<mapper namespace="com.stdkonjac.onlineledger.dao.LedgerBookDao">
     <select id="selectCategory"
-            resultType="com.stdkonjac.onlineledger.entity.Category">
-        select * from category
+            resultType="com.stdkonjac.onlineledger.entity.LedgerBook">
+        select * from ledger_book
         <where>
             <if test="uid != null">
                 and uid = #{uid}
@@ -23,13 +23,13 @@
     </select>
 
     <select id="selectAllCategory"
-            resultType="com.stdkonjac.onlineledger.entity.Category">
+            resultType="com.stdkonjac.onlineledger.entity.LedgerBook">
         select *
-        from category
+        from ledger_book
     </select>
 
     <insert id="insertCategory">
-        insert into category
+        insert into ledger_book
         <set>
             <if test="uid != null">
                 uid = #{uid},
@@ -47,7 +47,7 @@
     </insert>
 
     <delete id="deleteCategory">
-        delete from category
+        delete from ledger_book
         <where>
             <if test="uid != null">
                 and uid = #{uid}
@@ -65,7 +65,7 @@
     </delete>
 
     <update id="updateCategory">
-        update category
+        update ledger_book
         <set>
             <if test="name != null">
                 name = #{name},

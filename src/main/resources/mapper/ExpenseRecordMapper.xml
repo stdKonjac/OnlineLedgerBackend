@@ -25,6 +25,12 @@
             <if test="prepay != null">
                 and prepay = #{prepay}
             </if>
+            <if test="remark != null">
+                and remark = #{remark}
+            </if>
+            <if test="ledger_book != null">
+                and ledger_book = #{ledger_book}
+            </if>
         </where>
     </select>
 
@@ -55,6 +61,12 @@
             <if test="prepay != null">
                 prepay = #{prepay},
             </if>
+            <if test="remark != null">
+                remark = #{remark},
+            </if>
+            <if test="ledger_book != null">
+                ledger_book = #{ledger_book},
+            </if>
         </set>
     </insert>
 
@@ -79,6 +91,12 @@
             <if test="prepay != null">
                 and prepay = #{prepay}
             </if>
+            <if test="remark != null">
+                and remark = #{remark}
+            </if>
+            <if test="ledger_book != null">
+                and ledger_book = #{ledger_book}
+            </if>
         </where>
     </delete>
 
@@ -99,6 +117,12 @@
             </if>
             <if test="prepay != null">
                 prepay = #{prepay},
+            </if>
+            <if test="remark != null">
+                remark = #{remark},
+            </if>
+            <if test="ledger_book != null">
+                ledger_book = #{ledger_book},
             </if>
         </set>
         <where>

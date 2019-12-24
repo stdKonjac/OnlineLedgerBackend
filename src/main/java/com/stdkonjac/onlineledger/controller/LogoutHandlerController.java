@@ -24,6 +24,7 @@ public class LogoutHandlerController {
         User user = logoutHandlerService.verifyUser(uid, cookieUid);
         if (user != null) {
             CookieUtil.deleteCookie(request, response, "uid");
+            CookieUtil.deleteCookie(request, response, "username");
             String ip = IpUtil.getIpAddress(request);
             logoutHandlerService.recordLogoutAction(ip, user);
         }

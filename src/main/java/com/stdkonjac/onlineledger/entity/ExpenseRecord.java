@@ -10,6 +10,8 @@ public class ExpenseRecord {
     private String type;
     private Double expense;
     private Integer prepay;
+    private String remark;
+    private String ledgerBook;
 
     public Integer getId() {
         return id;
@@ -67,6 +69,22 @@ public class ExpenseRecord {
         this.prepay = prepay;
     }
 
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public String getLedgerBook() {
+        return ledgerBook;
+    }
+
+    public void setLedgerBook(String ledgerBook) {
+        this.ledgerBook = ledgerBook;
+    }
+
     @Override
     public String toString() {
         return "ExpenseRecord{" +
@@ -77,6 +95,8 @@ public class ExpenseRecord {
                 ", type='" + type + '\'' +
                 ", expense=" + expense +
                 ", prepay=" + prepay +
+                ", remark='" + remark + '\'' +
+                ", ledgerBook='" + ledgerBook + '\'' +
                 '}';
     }
 }

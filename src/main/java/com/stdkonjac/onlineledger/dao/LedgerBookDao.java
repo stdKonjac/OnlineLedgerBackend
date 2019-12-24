@@ -1,38 +1,37 @@
 package com.stdkonjac.onlineledger.dao;
 
-import com.stdkonjac.onlineledger.entity.Category;
-import com.stdkonjac.onlineledger.entity.User;
+import com.stdkonjac.onlineledger.entity.LedgerBook;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 @Mapper
-public interface CategoryDao {
+public interface LedgerBookDao {
 
-    List<Category> selectCategory(
+    List<LedgerBook> selectLedgerBook(
             @Param("uid") Integer uid,
             @Param("name") String name,
             @Param("record_count") Integer recordCount,
             @Param("budget") Double budget);
 
-    List<Category> selectAllCategory();
+    List<LedgerBook> selectAllLedgerBook();
 
-    void insertCategory(
-            @Param("uid") Integer uid,
-            @Param("name") String name,
-            @Param("record_count") Integer recordCount,
-            @Param("budget") Double budget);
-
-
-    void deleteCategory(
+    void insertLedgerBook(
             @Param("uid") Integer uid,
             @Param("name") String name,
             @Param("record_count") Integer recordCount,
             @Param("budget") Double budget);
 
 
-    void updateCategory(
+    void deleteLedgerBook(
+            @Param("uid") Integer uid,
+            @Param("name") String name,
+            @Param("record_count") Integer recordCount,
+            @Param("budget") Double budget);
+
+
+    void updateLedgerBook(
             @Param("uid") Integer uid,
             @Param("name") String name,
             @Param("record_count") Integer recordCount,

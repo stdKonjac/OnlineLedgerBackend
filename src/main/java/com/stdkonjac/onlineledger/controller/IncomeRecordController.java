@@ -24,7 +24,10 @@ public class IncomeRecordController {
         String category = request.getParameter("category");
         String type = request.getParameter("type");
         Double income = ParseUtil.str2Double(request.getParameter("income"));
-        return incomeRecordService.selectIncomeRecord(uid, date, category, type, income);
+        String remark = request.getParameter("remark");
+        String ledgerBook = request.getParameter("ledgerBook");
+        return incomeRecordService.selectIncomeRecord(
+                uid, date, category, type, income, remark, ledgerBook);
     }
 
     @RequestMapping("/queryAll")
@@ -39,7 +42,10 @@ public class IncomeRecordController {
         String category = request.getParameter("category");
         String type = request.getParameter("type");
         Double income = ParseUtil.str2Double(request.getParameter("income"));
-        incomeRecordService.insertIncomeRecord(uid, date, category, type, income);
+        String remark = request.getParameter("remark");
+        String ledgerBook = request.getParameter("ledgerBook");
+        incomeRecordService.insertIncomeRecord(
+                uid, date, category, type, income, remark, ledgerBook);
     }
 
     @RequestMapping("/delete")
@@ -49,7 +55,10 @@ public class IncomeRecordController {
         String category = request.getParameter("category");
         String type = request.getParameter("type");
         Double income = ParseUtil.str2Double(request.getParameter("income"));
-        incomeRecordService.deleteIncomeRecord(uid, date, category, type, income);
+        String remark = request.getParameter("remark");
+        String ledgerBook = request.getParameter("ledgerBook");
+        incomeRecordService.deleteIncomeRecord(
+                uid, date, category, type, income, remark, ledgerBook);
     }
 
     @RequestMapping("/update")
@@ -59,7 +68,10 @@ public class IncomeRecordController {
         String category = request.getParameter("category");
         String type = request.getParameter("type");
         Double income = ParseUtil.str2Double(request.getParameter("income"));
-        incomeRecordService.updateIncomeRecord(uid, date, category, type, income);
+        String remark = request.getParameter("remark");
+        String ledgerBook = request.getParameter("ledgerBook");
+        incomeRecordService.updateIncomeRecord(
+                uid, date, category, type, income, remark, ledgerBook);
     }
 
 }

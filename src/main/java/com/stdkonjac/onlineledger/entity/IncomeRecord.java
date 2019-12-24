@@ -9,6 +9,8 @@ public class IncomeRecord {
     private String category;
     private String type;
     private Double income;
+    private String remark;
+    private String ledgerBook;
 
     public Integer getId() {
         return id;
@@ -58,6 +60,22 @@ public class IncomeRecord {
         this.income = income;
     }
 
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public String getLedgerBook() {
+        return ledgerBook;
+    }
+
+    public void setLedgerBook(String ledgerBook) {
+        this.ledgerBook = ledgerBook;
+    }
+
     @Override
     public String toString() {
         return "IncomeRecord{" +
@@ -67,6 +85,8 @@ public class IncomeRecord {
                 ", category='" + category + '\'' +
                 ", type='" + type + '\'' +
                 ", income=" + income +
+                ", remark='" + remark + '\'' +
+                ", ledgerBook='" + ledgerBook + '\'' +
                 '}';
     }
 }
