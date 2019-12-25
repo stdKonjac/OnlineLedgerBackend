@@ -58,4 +58,6 @@ public interface ExpenseRecordDao {
             @Param("remark") String remark,
             @Param("ledger_book") String ledgerBook);
 
+    Integer getLastExpenseRecordId();
+
 }

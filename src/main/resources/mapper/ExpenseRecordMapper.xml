@@ -143,4 +143,10 @@
             </if>
         </where>
     </update>
+
+    <select id="getLastExpenseRecordId"
+            resultType="java.lang.Integer">
+        select max(id)
+        from expense_record
+    </select>
 </mapper>

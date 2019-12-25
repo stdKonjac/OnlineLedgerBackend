@@ -109,7 +109,7 @@
     </update>
 
     <delete id="deleteUnpaidRecordByExpenseRecordId">
-        delete from expense_record
+        delete from unpaid_record
         <where>
             <if test="expense_record_id != null">
                 and expense_record_id = #{expense_record_id}

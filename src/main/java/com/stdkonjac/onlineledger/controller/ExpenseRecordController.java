@@ -150,4 +150,94 @@ public class ExpenseRecordController {
                 id, uid, date, category, type, expense, prepay, remark, ledgerBook);
     }
 
+    @RequestMapping(value = "/insertSyncHandler", method = {RequestMethod.GET})
+    Integer syncInsert(HttpServletRequest request) {
+        Integer id = ParseUtil.str2Int(request.getParameter("id"));
+        Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
+        Date date = ParseUtil.str2Date(request.getParameter("date"));
+        String category = request.getParameter("category");
+        String type = request.getParameter("type");
+        Double expense = ParseUtil.str2Double(request.getParameter("expense"));
+        Integer prepay = ParseUtil.str2Int(request.getParameter("prepay"));
+        String remark = request.getParameter("remark");
+        String ledgerBook = request.getParameter("ledgerBook");
+        return expenseRecordService.syncInsert(
+                id, uid, date, category, type, expense, prepay, remark, ledgerBook);
+    }
+
+    @RequestMapping(value = "/deleteSyncHandler", method = {RequestMethod.GET})
+    Integer syncDelete(HttpServletRequest request) {
+        Integer id = ParseUtil.str2Int(request.getParameter("id"));
+        Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
+        Date date = ParseUtil.str2Date(request.getParameter("date"));
+        String category = request.getParameter("category");
+        String type = request.getParameter("type");
+        Double expense = ParseUtil.str2Double(request.getParameter("expense"));
+        Integer prepay = ParseUtil.str2Int(request.getParameter("prepay"));
+        String remark = request.getParameter("remark");
+        String ledgerBook = request.getParameter("ledgerBook");
+        return expenseRecordService.syncDelete(
+                id, uid, date, category, type, expense, prepay, remark, ledgerBook);
+    }
+
+    @RequestMapping(value = "/updateSyncHandler", method = {RequestMethod.GET})
+    Integer syncUpdate(HttpServletRequest request) {
+        Integer id = ParseUtil.str2Int(request.getParameter("id"));
+        Integer uid = ParseUtil.str2Int(request.getParameter("uid"));
+        Date date = ParseUtil.str2Date(request.getParameter("date"));
+        String category = request.getParameter("category");
+        String type = request.getParameter("type");
+        Double expense = ParseUtil.str2Double(request.getParameter("expense"));
+        Integer prepay = ParseUtil.str2Int(request.getParameter("prepay"));
+        String remark = request.getParameter("remark");
+        String ledgerBook = request.getParameter("ledgerBook");
+        return expenseRecordService.syncUpdate(
+                id, uid, date, category, type, expense, prepay, remark, ledgerBook);
+    }
+
+    @RequestMapping(value = "/jsonInsertSyncHandler", method = {RequestMethod.POST})
+    Integer syncInsert(@RequestBody Map params) {
+        Integer id = ParseUtil.obj2Int(params.get("id"));
+        Integer uid = ParseUtil.obj2Int(params.get("uid"));
+        Date date = ParseUtil.obj2Date(params.get("date"));
+        String category = ParseUtil.obj2String(params.get("category"));
+        String type = ParseUtil.obj2String(params.get("type"));
+        Double expense = ParseUtil.obj2Double(params.get("expense"));
+        Integer prepay = ParseUtil.obj2Int(params.get("prepay"));
+        String remark = ParseUtil.obj2String(params.get("remark"));
+        String ledgerBook = ParseUtil.obj2String(params.get("ledgerBook"));
+        return expenseRecordService.syncInsert(
+                id, uid, date, category, type, expense, prepay, remark, ledgerBook);
+    }
+
+    @RequestMapping(value = "/jsonDeleteSyncHandler", method = {RequestMethod.POST})
+    Integer syncDelete(@RequestBody Map params) {
+        Integer id = ParseUtil.obj2Int(params.get("id"));
+        Integer uid = ParseUtil.obj2Int(params.get("uid"));
+        Date date = ParseUtil.obj2Date(params.get("date"));
+        String category = ParseUtil.obj2String(params.get("category"));
+        String type = ParseUtil.obj2String(params.get("type"));
+        Double expense = ParseUtil.obj2Double(params.get("expense"));
+        Integer prepay = ParseUtil.obj2Int(params.get("prepay"));
+        String remark = ParseUtil.obj2String(params.get("remark"));
+        String ledgerBook = ParseUtil.obj2String(params.get("ledgerBook"));
+        return expenseRecordService.syncDelete(
+                id, uid, date, category, type, expense, prepay, remark, ledgerBook);
+    }
+
+    @RequestMapping(value = "/jsonUpdateSyncHandler", method = {RequestMethod.POST})
+    Integer syncUpdate(@RequestBody Map params) {
+        Integer id = ParseUtil.obj2Int(params.get("id"));
+        Integer uid = ParseUtil.obj2Int(params.get("uid"));
+        Date date = ParseUtil.obj2Date(params.get("date"));
+        String category = ParseUtil.obj2String(params.get("category"));
+        String type = ParseUtil.obj2String(params.get("type"));
+        Double expense = ParseUtil.obj2Double(params.get("expense"));
+        Integer prepay = ParseUtil.obj2Int(params.get("prepay"));
+        String remark = ParseUtil.obj2String(params.get("remark"));
+        String ledgerBook = ParseUtil.obj2String(params.get("ledgerBook"));
+        return expenseRecordService.syncUpdate(
+                id, uid, date, category, type, expense, prepay, remark, ledgerBook);
+    }
+
 }
