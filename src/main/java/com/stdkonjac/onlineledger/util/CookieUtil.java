@@ -3,6 +3,8 @@ package com.stdkonjac.onlineledger.util;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CookieUtil {
     public static void setCookie(HttpServletResponse response,
@@ -38,4 +40,17 @@ public class CookieUtil {
         }
         return null;
     }
+
+    public static Map<String, String> getAllCookies(HttpServletRequest request) {
+        Map<String, String> cookieMap = new HashMap<String, String>();
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                cookieMap.put(cookie.getName(), cookie.getValue());
+            }
+            return cookieMap;
+        }
+        return null;
+    }
 }
+
