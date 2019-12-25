@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.stdkonjac.onlineledger.dao.LedgerBookDao">
-    <select id="selectCategory"
+    <select id="selectLedgerBook"
             resultType="com.stdkonjac.onlineledger.entity.LedgerBook">
         select * from ledger_book
         <where>
@@ -25,13 +25,13 @@
         </where>
     </select>
 
-    <select id="selectAllCategory"
+    <select id="selectAllLedgerBook"
             resultType="com.stdkonjac.onlineledger.entity.LedgerBook">
         select *
         from ledger_book
     </select>
 
-    <insert id="insertCategory">
+    <insert id="insertLedgerBook">
         insert into ledger_book
         <set>
             <if test="id != null">
@@ -52,7 +52,7 @@
         </set>
     </insert>
 
-    <delete id="deleteCategory">
+    <delete id="deleteLedgerBook">
         delete from ledger_book
         <where>
             <if test="id != null">
@@ -73,7 +73,7 @@
         </where>
     </delete>
 
-    <update id="updateCategory">
+    <update id="updateLedgerBook">
         update ledger_book
         <set>
             <if test="uid != null">
